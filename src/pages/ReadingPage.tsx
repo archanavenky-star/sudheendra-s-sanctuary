@@ -49,37 +49,40 @@ const ReadingPage = () => {
   };
 
   return (
-    <SiteLayout>
-      <article className="fade-in relative">
+    <SiteLayout wide>
+      <article className="fade-in relative mx-auto max-w-[1440px] px-6 md:px-12 xl:px-20">
         <img
           src={bodhi}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none select-none absolute -top-4 right-0 w-40 opacity-[0.06]"
+          className="pointer-events-none absolute right-8 top-10 w-48 select-none opacity-[0.055] md:right-20 md:w-72"
         />
-        <header className="py-8 md:py-12">
-          <span className="text-xs text-muted-foreground font-body">
+        <header className="grid border-b border-border py-14 md:grid-cols-12 md:py-24">
+          <div className="md:col-span-2"><span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-body">
             {article.date}
             {article.type === "series" && article.seriesPart && (
               <span> · Part {article.seriesPart} of {article.seriesTotalParts}</span>
             )}
-          </span>
-          <h1 className="font-heading text-2xl md:text-3xl font-medium mt-2 text-primary leading-snug">
+          </span></div>
+          <div className="mt-7 md:col-span-8 md:col-start-4 md:mt-0"><h1 className="max-w-4xl font-heading text-4xl font-medium leading-[1.12] text-primary md:text-6xl lg:text-7xl">
             {article.title}
           </h1>
           {article.type === "series" && article.seriesTitle && (
             <p className="text-sm text-muted-foreground mt-2 font-body">
               From the series: <em>{article.seriesTitle}</em>
             </p>
-          )}
+          )}</div>
         </header>
 
-        <div className="prose-reading">
-          {renderBody(article.body)}
+        <div className="grid py-12 md:grid-cols-12 md:py-20">
+          <aside className="hidden md:col-span-2 md:block"><div className="sticky top-10 border-t border-primary/30 pt-4 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Read slowly<br />Return often</div></aside>
+          <div className="prose-reading md:col-span-7 md:col-start-4 md:mx-0">
+            {renderBody(article.body)}
+          </div>
         </div>
 
         {article.type === "series" && (seriesNav.prev || seriesNav.next) && (
-          <nav className="mt-16 pt-8 border-t border-border flex justify-between">
+          <nav className="mx-auto mt-8 flex max-w-[820px] justify-between border-t border-border pt-8">
             {seriesNav.prev ? (
               <Link to={`/read/${seriesNav.prev.slug}`} className="text-sm font-body text-muted-foreground hover:text-primary transition-colors">
                 ← Part {seriesNav.prev.seriesPart}
@@ -93,7 +96,7 @@ const ReadingPage = () => {
           </nav>
         )}
 
-        <div className="mt-12 pt-8 border-t border-border">
+        <div className="mx-auto mt-12 max-w-[820px] border-t border-border pt-8">
           <Link to="/" className="text-sm font-body text-muted-foreground hover:text-primary transition-colors">
             ← Back to all writings
           </Link>

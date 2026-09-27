@@ -97,6 +97,10 @@
     color: hsl(var(--muted-foreground));
   }
 
+  .writing-row:hover {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.025), transparent);
+  }
+
   .fade-in {
     animation: fadeIn 0.8s ease-out forwards;
     opacity: 0;
