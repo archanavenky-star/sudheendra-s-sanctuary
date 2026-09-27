@@ -104,15 +104,6 @@ const AlternativeHome = () => {
             </section>
           </div>
 
-          <section className="mt-32 grid border-t border-border pt-14 md:mt-44 md:grid-cols-12 md:pt-20">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground md:col-span-3">The writer</p>
-            <div className="mt-8 md:col-span-7 md:col-start-5 md:mt-0">
-              <h2 className="font-heading text-4xl font-normal text-primary md:text-6xl">Sudheendra Chaitanya</h2>
-              <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">
-                A teacher of Advaita Vedanta, offering these writings as an invitation to enquire—quietly, patiently, and for oneself.
-              </p>
-            </div>
-          </section>
         </main>
       </div>
     </SiteLayout>
