@@ -4,6 +4,7 @@ import HimalayanFooter from "@/components/HimalayanFooter";
 
 const navItems = [
   { path: "/", label: "Home" },
+  { path: "/home-alternative", label: "Home II" },
   { path: "/articles", label: "Articles" },
   { path: "/notes", label: "Insights" },
   { path: "/series", label: "Series" },
@@ -29,7 +30,7 @@ const SiteLayout = ({
               className="h-[76px] w-auto md:h-[88px]"
             />
           </Link>
-          <nav className="mt-5 flex justify-center gap-5 sm:mt-0 md:gap-9" aria-label="Main navigation">
+          <nav className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1 sm:mt-0 md:gap-x-8" aria-label="Main navigation">
             {navItems.map((item) => (
               <Link
                 key={item.path}

@@ -1,0 +1,109 @@
+import { Link } from "react-router-dom";
+import SiteLayout from "@/components/SiteLayout";
+import InsightsEmblem from "@/components/InsightsEmblem";
+import { getArticlesByType, getSeriesGroups } from "@/data/content";
+import banner from "@/assets/alternative-home-banner.jpg";
+import bodhi from "@/assets/bodhi-leaf.png";
+import lotus from "@/assets/lotus.png";
+
+const AlternativeHome = () => {
+  const feature = getArticlesByType("article")[0];
+  const insight = getArticlesByType("note")[0];
+  const series = getSeriesGroups()[0];
+
+  if (!feature || !insight || !series) return null;
+
+  return (
+    <SiteLayout wide>
+      <div className="fade-in overflow-hidden">
+        <header className="relative mx-auto mt-8 min-h-[480px] w-[calc(100%-2rem)] max-w-[1440px] overflow-hidden md:mt-12 md:min-h-[650px] md:w-[calc(100%-6rem)]">
+          <img
+            src={banner}
+            alt="Dawn opening across a Himalayan valley"
+            width={1920}
+            height={900}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/65 via-foreground/20 to-transparent" />
+          <div className="relative flex min-h-[480px] max-w-[760px] flex-col justify-end px-7 pb-12 text-primary-foreground md:min-h-[650px] md:px-16 md:pb-20">
+            <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-primary-foreground/75">Writings of Sudheendra Chaitanya</p>
+            <h1 className="font-heading text-5xl font-normal leading-[1.06] md:text-8xl">
+              To look closely.<br />To remain still.
+            </h1>
+            <p className="mt-7 max-w-lg text-base leading-8 text-primary-foreground/85">
+              Essays, insights, and unfolding enquiries into awareness and the life that moves through us.
+            </p>
+          </div>
+        </header>
+
+        <main className="mx-auto max-w-[1440px] px-6 pb-8 pt-24 md:px-12 md:pt-36 xl:px-20">
+          <div className="grid gap-y-28 md:grid-cols-12 md:gap-x-10 md:gap-y-40">
+            <section className="md:col-span-8">
+              <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-[180px_1fr] md:gap-14">
+                <Link to="/articles" className="group self-start" aria-label="Browse all articles">
+                  <img src={bodhi} alt="" className="h-auto w-32 opacity-75 transition-all duration-700 group-hover:opacity-100 md:w-40" />
+                  <p className="mt-6 text-[10px] uppercase tracking-[0.28em] text-primary">Articles</p>
+                </Link>
+                <Link to={`/read/${feature.slug}`} className="group block">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">A sustained enquiry · {feature.date}</p>
+                  <h2 className="mt-6 max-w-3xl font-heading text-4xl font-normal leading-tight transition-colors duration-500 group-hover:text-primary md:text-6xl">{feature.title}</h2>
+                  <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">{feature.excerpt}</p>
+                  <span className="mt-8 inline-block border-b border-primary pb-1 text-[10px] uppercase tracking-[0.22em] text-primary">Read the article</span>
+                </Link>
+              </div>
+            </section>
+
+            <section className="md:col-span-4 md:col-start-9 md:pt-40">
+              <Link to="/notes" className="group block border border-border bg-card/60 p-8 md:p-10">
+                <div className="flex items-start justify-between">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-primary">Insight</p>
+                  <InsightsEmblem className="h-20 w-20 text-primary/65 transition-transform duration-700 group-hover:rotate-12" />
+                </div>
+                <blockquote className="mt-12 font-heading text-2xl italic leading-relaxed text-foreground md:text-3xl">
+                  “{insight.excerpt}”
+                </blockquote>
+                <p className="mt-8 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{insight.title} · {insight.date}</p>
+              </Link>
+            </section>
+
+            <section className="md:col-span-9 md:col-start-3">
+              <div className="grid overflow-hidden bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
+                <Link to="/series" className="group flex min-h-[330px] items-center justify-center border-b border-primary-foreground/15 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
+                  <img src={lotus} alt="" className="h-auto w-44 brightness-0 invert opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 md:w-64" />
+                </Link>
+                <div className="flex flex-col justify-center p-9 md:p-14">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-primary-foreground/65">Series · {series.articles.length} parts</p>
+                  <h2 className="mt-6 font-heading text-4xl font-normal leading-tight md:text-5xl">{series.title}</h2>
+                  <p className="mt-6 max-w-lg text-sm leading-7 text-primary-foreground/75">
+                    One question given the room to deepen, with each part returning from a different point of view.
+                  </p>
+                  <div className="mt-10 border-t border-primary-foreground/20">
+                    {series.articles.map((article) => (
+                      <Link key={article.slug} to={`/read/${article.slug}`} className="grid grid-cols-[40px_1fr_auto] gap-3 border-b border-primary-foreground/20 py-4 text-sm transition-colors duration-500 hover:text-accent">
+                        <span className="font-heading italic text-primary-foreground/45">0{article.seriesPart}</span>
+                        <span>{article.title.replace(`${series.title} — `, "")}</span>
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <section className="mt-32 grid border-t border-border pt-14 md:mt-44 md:grid-cols-12 md:pt-20">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground md:col-span-3">The writer</p>
+            <div className="mt-8 md:col-span-7 md:col-start-5 md:mt-0">
+              <h2 className="font-heading text-4xl font-normal text-primary md:text-6xl">Sudheendra Chaitanya</h2>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">
+                A teacher of Advaita Vedanta, offering these writings as an invitation to enquire—quietly, patiently, and for oneself.
+              </p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </SiteLayout>
+  );
+};
+
+export default AlternativeHome;
