@@ -18,6 +18,10 @@ export default {
         body: ["Lora", "Georgia", "serif"],
       },
       colors: {
+        saffron: {
+          DEFAULT: "hsl(var(--saffron))",
+          soft: "hsl(var(--saffron-soft))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

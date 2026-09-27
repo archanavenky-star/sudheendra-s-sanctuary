@@ -8,7 +8,8 @@ const Notes = () => {
   return (
     <SiteLayout>
       <div className="fade-in">
-        <div className="py-8">
+        <div className="py-8 text-center">
+          <span className="block h-px w-10 bg-primary/40 mx-auto mb-5" />
           <h2 className="font-heading text-2xl font-medium text-primary mb-2">Short Notes</h2>
           <p className="text-sm text-muted-foreground font-body">Brief insights and observations.</p>
         </div>
