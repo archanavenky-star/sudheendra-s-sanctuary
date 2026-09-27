@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SiteLayout from "@/components/SiteLayout";
 import { getSeriesGroups } from "@/data/content";
-import lotus from "@/assets/lotus.png.asset.json";
+import lotus from "@/assets/lotus.png";
 
 const Series = () => {
   const groups = getSeriesGroups();
@@ -10,7 +10,7 @@ const Series = () => {
     <SiteLayout>
       <div className="fade-in">
         <div className="py-8 text-center">
-          <img src={lotus.url} alt="" className="h-12 w-auto mx-auto mb-4 opacity-80" />
+          <img src={lotus} alt="" className="h-12 w-auto mx-auto mb-4 opacity-80" />
           <h2 className="font-heading text-2xl font-medium text-primary mb-2">Series</h2>
           <p className="text-sm text-muted-foreground font-body">Multi-part explorations into a single theme.</p>
         </div>

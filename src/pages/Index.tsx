@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import SiteLayout from "@/components/SiteLayout";
 import { articles } from "@/data/content";
-import banner from "@/assets/home-banner.jpg.asset.json";
-import authorBio from "@/assets/author-bio.jpg.asset.json";
-import bodhi from "@/assets/bodhi-leaf.png.asset.json";
-import lotus from "@/assets/lotus.png.asset.json";
+import banner from "@/assets/home-banner.jpg";
+import authorBio from "@/assets/author-bio.jpg";
+import bodhi from "@/assets/bodhi-leaf.png";
+import lotus from "@/assets/lotus.png";
 
 const streams = [
   {
     to: "/articles",
     label: "Articles",
     description: "Standalone reflections, read at their own pace.",
-    icon: bodhi.url,
+    icon: bodhi,
   },
   {
     to: "/notes",
@@ -23,7 +23,7 @@ const streams = [
     to: "/series",
     label: "Series",
     description: "Longer enquiries unfolding across parts.",
-    icon: lotus.url,
+    icon: lotus,
   },
 ];
 
@@ -35,7 +35,7 @@ const Index = () => {
       <div className="fade-in">
         <div className="relative w-full overflow-hidden">
           <img
-            src={banner.url}
+            src={banner}
             alt="Sunrise over the mountains"
             className="w-full h-[220px] md:h-[320px] object-cover"
           />
@@ -114,7 +114,7 @@ const Index = () => {
 
           <div className="mt-20 pt-10 border-t border-border flex flex-col sm:flex-row gap-6 items-center sm:items-start">
             <img
-              src={authorBio.url}
+              src={authorBio}
               alt="Sudheendra Chaitanya"
               className="w-28 h-28 object-cover rounded-sm"
             />

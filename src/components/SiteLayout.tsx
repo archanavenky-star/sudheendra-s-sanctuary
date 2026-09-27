@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/iatw-logo.svg.asset.json";
+import logo from "@/assets/iatw-logo.svg";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -23,7 +23,7 @@ const SiteLayout = ({
         <div className="max-w-[640px] mx-auto px-6">
           <Link to="/" className="flex flex-col items-center mb-6">
             <img
-              src={logo.url}
+              src={logo}
               alt="I Am The World"
               className="h-20 md:h-24 w-auto"
             />
