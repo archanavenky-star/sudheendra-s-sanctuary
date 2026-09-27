@@ -66,7 +66,7 @@ const Notes = () => {
             </div>
 
             <div className="flex items-start px-6 py-10 md:px-12 md:py-16 lg:min-h-[760px] lg:px-16 xl:px-24" aria-live="polite">
-              <article key={selectedIndex} className="fade-in max-w-[680px]">
+              <article key={selectedIndex} className="max-w-[680px] animate-in fade-in-0 duration-300 motion-reduce:animate-none">
                 <p className="mb-8 text-[10px] uppercase tracking-[0.2em] text-primary/60">Insight {String(selectedIndex + 1).padStart(2, "0")}</p>
                 <p className="font-heading text-2xl leading-[1.75] text-foreground md:text-3xl md:leading-[1.7]">{selectedInsight}</p>
               </article>
