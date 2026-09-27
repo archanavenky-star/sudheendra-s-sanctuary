@@ -31,7 +31,7 @@ const Index = () => {
   const recent = articles.slice(0, 3);
 
   return (
-    <SiteLayout>
+    <SiteLayout wide>
       <div className="fade-in">
         <div className="relative w-full overflow-hidden">
           <img

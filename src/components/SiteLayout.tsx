@@ -8,7 +8,13 @@ const navItems = [
   { path: "/series", label: "Series" },
 ];
 
-const SiteLayout = ({ children }: { children: React.ReactNode }) => {
+const SiteLayout = ({
+  children,
+  wide = false,
+}: {
+  children: React.ReactNode;
+  wide?: boolean;
+}) => {
   const location = useLocation();
 
   return (
@@ -43,7 +49,9 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </header>
 
-      <main className="flex-1 pb-20">{children}</main>
+      <main className="flex-1 pb-20">
+        {wide ? children : <div className="max-w-[640px] mx-auto px-6">{children}</div>}
+      </main>
 
       <footer className="py-10 border-t border-border">
         <div className="max-w-[640px] mx-auto px-6 text-center space-y-2">
