@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import SiteLayout from "@/components/SiteLayout";
+import ReaderWatermark from "@/components/ReaderWatermark";
 import { getArticleBySlug, articles } from "@/data/content";
-import bodhi from "@/assets/bodhi-leaf.png";
 
 const ReadingPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -50,13 +50,8 @@ const ReadingPage = () => {
 
   return (
     <SiteLayout wide>
-      <article className="fade-in relative mx-auto max-w-[1440px] px-6 md:px-12 xl:px-20">
-        <img
-          src={bodhi}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute right-8 top-10 w-48 select-none opacity-[0.055] md:right-20 md:w-72"
-        />
+      <ReaderWatermark type={article.type} />
+      <article className="fade-in relative z-10 mx-auto max-w-[1440px] px-6 md:px-12 xl:px-20">
         <header className="grid border-b border-border py-14 md:grid-cols-12 md:py-24">
           <div className="md:col-span-2"><span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-body">
             {article.date}
@@ -64,9 +59,11 @@ const ReadingPage = () => {
               <span> · Part {article.seriesPart} of {article.seriesTotalParts}</span>
             )}
           </span></div>
-          <div className="mt-7 md:col-span-8 md:col-start-4 md:mt-0"><h1 className="max-w-4xl font-heading text-4xl font-medium leading-[1.12] text-primary md:text-6xl lg:text-7xl">
+          <div className="mt-7 md:col-span-8 md:col-start-4 md:mt-0">
+          {article.type !== "note" && <h1 className="max-w-4xl font-heading text-4xl font-medium leading-[1.12] text-primary md:text-6xl lg:text-7xl">
             {article.title}
-          </h1>
+          </h1>}
+          {article.type === "note" && <p className="max-w-3xl font-heading text-3xl italic leading-relaxed text-primary md:text-5xl">An insight for quiet contemplation</p>}
           {article.type === "series" && article.seriesTitle && (
             <p className="text-sm text-muted-foreground mt-2 font-body">
               From the series: <em>{article.seriesTitle}</em>
