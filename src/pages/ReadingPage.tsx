@@ -20,12 +20,15 @@ const ReadingPage = () => {
     );
   }
 
+  const seriesArticles = article.type === "series" && article.seriesTitle
+    ? articles
+        .filter((item) => item.seriesTitle === article.seriesTitle)
+        .sort((a, b) => (a.seriesPart ?? 0) - (b.seriesPart ?? 0))
+    : [];
+
   // Find next/prev in series
   let seriesNav: { prev?: typeof article; next?: typeof article } = {};
-  if (article.type === "series" && article.seriesTitle) {
-    const seriesArticles = articles
-      .filter((a) => a.seriesTitle === article.seriesTitle)
-      .sort((a, b) => (a.seriesPart ?? 0) - (b.seriesPart ?? 0));
+  if (seriesArticles.length > 0) {
     const idx = seriesArticles.findIndex((a) => a.slug === article.slug);
     if (idx > 0) seriesNav.prev = seriesArticles[idx - 1];
     if (idx < seriesArticles.length - 1) seriesNav.next = seriesArticles[idx + 1];
@@ -72,7 +75,36 @@ const ReadingPage = () => {
         </header>
 
         <div className="grid py-12 md:grid-cols-12 md:py-20">
-          <aside className="hidden md:col-span-2 md:block"><div className="sticky top-10 border-t border-primary/30 pt-4 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Read slowly<br />Return often</div></aside>
+          <aside className="hidden md:col-span-2 md:block">
+            {seriesArticles.length > 0 ? (
+              <nav aria-label="Parts in this series" className="sticky top-48 border-t border-primary/30 pt-4">
+                <p className="mb-5 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">In this series</p>
+                <ol className="space-y-4">
+                  {seriesArticles.map((part) => {
+                    const isCurrent = part.slug === article.slug;
+                    const label = (
+                      <>
+                        <span className="block text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Part {part.seriesPart}</span>
+                        <span className="mt-1 block font-heading text-sm leading-snug">{part.title}</span>
+                      </>
+                    );
+
+                    return (
+                      <li key={part.slug} className="border-b border-border/70 pb-4">
+                        {isCurrent ? (
+                          <span aria-current="page" className="block border-l-2 border-primary pl-3 text-primary">{label}</span>
+                        ) : (
+                          <Link to={`/read/${part.slug}`} className="block pl-3 text-muted-foreground transition-colors hover:text-primary">{label}</Link>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </nav>
+            ) : (
+              <div className="sticky top-48 border-t border-primary/30 pt-4 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Read slowly<br />Return often</div>
+            )}
+          </aside>
           <div className="prose-reading md:col-span-7 md:col-start-4 md:mx-0">
             {renderBody(article.body)}
           </div>
