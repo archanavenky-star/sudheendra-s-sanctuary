@@ -9,15 +9,15 @@ type ReaderWatermarkProps = {
 const ReaderWatermark = ({ type }: ReaderWatermarkProps) => (
   <div
     aria-hidden="true"
-    className="pointer-events-none fixed right-0 top-[108px] z-0 h-[calc(100vh-108px)] w-[28vw] min-w-[120px] overflow-hidden md:top-[145px] md:h-[calc(100vh-145px)] md:min-w-[240px]"
+    className="pointer-events-none fixed right-0 top-[108px] z-0 h-[calc(100vh-108px)] w-[52vh] overflow-hidden md:top-[145px] md:h-[calc(100vh-145px)] md:w-[69.33vh]"
   >
     {type === "note" ? (
-      <InsightsEmblem className="absolute left-1/2 top-1/2 h-[70vh] w-[70vh] -translate-y-1/2 text-primary/[0.055] md:h-[92vh] md:w-[92vh]" />
+      <InsightsEmblem className="absolute -right-[26vh] top-1/2 h-[78vh] w-[78vh] -translate-y-1/2 text-primary/[0.055] md:-right-[34.67vh] md:h-[104vh] md:w-[104vh]" />
     ) : (
       <img
         src={type === "article" ? bodhi : lotus}
         alt=""
-        className="absolute left-1/2 top-1/2 h-[70vh] w-[70vh] -translate-y-1/2 object-contain opacity-[0.055] md:h-[92vh] md:w-[92vh]"
+        className="absolute -right-[26vh] top-1/2 h-[78vh] w-[78vh] -translate-y-1/2 object-contain opacity-[0.055] md:-right-[34.67vh] md:h-[104vh] md:w-[104vh]"
       />
     )}
   </div>
