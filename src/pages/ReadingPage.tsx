@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import SiteLayout from "@/components/SiteLayout";
 import { getArticleBySlug, articles } from "@/data/content";
+import bodhi from "@/assets/bodhi-leaf.png.asset.json";
 
 const ReadingPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -49,7 +50,13 @@ const ReadingPage = () => {
 
   return (
     <SiteLayout>
-      <article className="fade-in">
+      <article className="fade-in relative">
+        <img
+          src={bodhi.url}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute -top-4 right-0 w-40 opacity-[0.06]"
+        />
         <header className="py-8 md:py-12">
           <span className="text-xs text-muted-foreground font-body">
             {article.date}
