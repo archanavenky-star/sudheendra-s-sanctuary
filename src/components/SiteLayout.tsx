@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/iatw-logo.svg";
+import HimalayanFooter from "@/components/HimalayanFooter";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -20,7 +21,7 @@ const SiteLayout = ({
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-border/70">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center px-6 py-5 sm:grid-cols-[150px_1fr_150px] md:px-10 md:py-7">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center px-6 py-5 sm:grid-cols-[180px_1fr_180px] md:px-12 md:py-7 xl:px-20">
           <Link to="/" className="justify-self-start" aria-label="I Am The World home">
             <img
               src={logo}
@@ -47,20 +48,11 @@ const SiteLayout = ({
         </div>
       </header>
 
-      <main className="flex-1 pb-20">
+      <main className="flex-1">
         {wide ? children : <div className="max-w-[640px] mx-auto px-6">{children}</div>}
       </main>
 
-      <footer className="relative mt-10 overflow-hidden border-t border-border/60 pt-16">
-        <div className="relative z-10 mx-auto max-w-[640px] px-6 pb-20 text-center space-y-2">
-          <p className="font-heading text-base text-primary">I Am The World</p>
-          <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground font-body">Writings of Sudheendra Chaitanya</p>
-        </div>
-        <svg aria-hidden="true" viewBox="0 0 1440 210" preserveAspectRatio="none" className="block h-28 w-full text-primary/10 md:h-44">
-          <path fill="currentColor" d="M0 176 74 152l42 9 76-60 53 42 47-28 38 19 91-101 75 107 55-54 67 67 42-23 51 17 58-57 69 53 44-30 65 39 54-18 64 25 76-86 81 79 55-31 67 49 67-32 38 18v54H0Z" />
-          <path fill="currentColor" opacity=".45" d="M0 193 109 166l73 20 82-45 99 44 86-31 81 34 121-75 103 70 78-45 91 46 84-32 106 34 91-39 116 46v17H0Z" />
-        </svg>
-      </footer>
+      <HimalayanFooter />
     </div>
   );
 };
