@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 36 40% 95%;
-    --foreground: 20 10% 20%;
+    --background: 41 62% 96%;
+    --foreground: 15 12% 16%;
 
-    --card: 36 35% 92%;
-    --card-foreground: 20 10% 20%;
+    --card: 45 70% 94%;
+    --card-foreground: 15 12% 16%;
 
-    --popover: 36 40% 95%;
-    --popover-foreground: 20 10% 20%;
+    --popover: 41 62% 96%;
+    --popover-foreground: 15 12% 16%;
 
-    --primary: 348 60% 25%;
-    --primary-foreground: 36 40% 95%;
+    --primary: 350 49% 24%;
+    --primary-foreground: 41 62% 96%;
 
-    --secondary: 36 30% 88%;
-    --secondary-foreground: 20 10% 20%;
+    --secondary: 43 45% 90%;
+    --secondary-foreground: 15 12% 16%;
 
-    --muted: 36 25% 90%;
-    --muted-foreground: 20 8% 45%;
+    --muted: 43 38% 91%;
+    --muted-foreground: 20 10% 42%;
 
-    --accent: 348 45% 35%;
-    --accent-foreground: 36 40% 95%;
+    --accent: 33 82% 54%;
+    --accent-foreground: 15 12% 16%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 36 20% 82%;
-    --input: 36 20% 82%;
-    --ring: 348 60% 25%;
+    --border: 40 28% 84%;
+    --input: 40 28% 84%;
+    --ring: 350 49% 24%;
 
     --radius: 0.25rem;
 
@@ -47,6 +47,8 @@
 
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Lora', Georgia, serif;
+    --saffron: 33 82% 54%;
+    --saffron-soft: 36 86% 62%;
   }
 }
 
