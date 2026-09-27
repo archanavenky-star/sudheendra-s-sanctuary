@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/iatw-logo.svg.asset.json";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -12,17 +13,19 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="py-8 md:py-12">
+      <header className="pt-10 pb-6 md:pt-14">
         <div className="max-w-[640px] mx-auto px-6">
-          <Link to="/" className="block mb-6">
-            <h1 className="font-heading text-2xl md:text-3xl font-medium tracking-wide text-primary">
-              I Am The World
-            </h1>
-            <p className="text-sm text-muted-foreground mt-1 font-body">
-              Writings of Sudheendra Chaitanya
+          <Link to="/" className="flex flex-col items-center mb-6">
+            <img
+              src={logo.url}
+              alt="I Am The World"
+              className="h-20 md:h-24 w-auto"
+            />
+            <p className="text-[0.7rem] md:text-xs tracking-[0.22em] uppercase text-primary/70 mt-4 font-body">
+              What runs the world runs the me
             </p>
           </Link>
-          <nav className="flex gap-6 border-b border-border pb-4">
+          <nav className="flex justify-center gap-6 md:gap-8 border-y border-border py-3">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -30,7 +33,7 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
                 className={`text-sm font-body transition-colors duration-200 ${
                   location.pathname === item.path
                     ? "text-primary font-medium"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-muted-foreground hover:text-primary"
                 }`}
               >
                 {item.label}
@@ -40,16 +43,13 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </header>
 
-      <main className="flex-1 pb-20">
-        <div className="max-w-[640px] mx-auto px-6">
-          {children}
-        </div>
-      </main>
+      <main className="flex-1 pb-20">{children}</main>
 
       <footer className="py-10 border-t border-border">
-        <div className="max-w-[640px] mx-auto px-6 text-center">
+        <div className="max-w-[640px] mx-auto px-6 text-center space-y-2">
+          <p className="font-heading text-sm text-primary">I Am The World</p>
           <p className="text-xs text-muted-foreground font-body">
-            I Am The World — Sudheendra Chaitanya
+            Writings of Sudheendra Chaitanya
           </p>
         </div>
       </footer>
