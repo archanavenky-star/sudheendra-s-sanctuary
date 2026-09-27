@@ -7,7 +7,8 @@ import bodhi from "@/assets/bodhi-leaf.png";
 import lotus from "@/assets/lotus.png";
 
 const AlternativeHome = () => {
-  const feature = getArticlesByType("article")[0];
+  const articleEntries = getArticlesByType("article").slice(0, 2);
+  const feature = articleEntries[0];
   const insight = getArticlesByType("note")[0];
   const series = getSeriesGroups()[0];
 
@@ -44,12 +45,24 @@ const AlternativeHome = () => {
                   <img src={bodhi} alt="" className="h-auto w-32 opacity-75 transition-all duration-700 group-hover:opacity-100 md:w-40" />
                   <p className="mt-6 text-[10px] uppercase tracking-[0.28em] text-primary">Articles</p>
                 </Link>
-                <Link to={`/read/${feature.slug}`} className="group block">
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">A sustained enquiry · {feature.date}</p>
-                  <h2 className="mt-6 max-w-3xl font-heading text-4xl font-normal leading-tight transition-colors duration-500 group-hover:text-primary md:text-6xl">{feature.title}</h2>
-                  <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">{feature.excerpt}</p>
-                  <span className="mt-8 inline-block border-b border-primary pb-1 text-[10px] uppercase tracking-[0.22em] text-primary">Read the article</span>
-                </Link>
+                <div>
+                  {articleEntries.map((article, index) => (
+                    <Link
+                      key={article.slug}
+                      to={`/read/${article.slug}`}
+                      className={`group block ${index > 0 ? "mt-12 border-t border-border pt-9" : ""}`}
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                        {index === 0 ? "A sustained enquiry" : "From the articles"} · {article.date}
+                      </p>
+                      <h2 className={`mt-5 max-w-3xl font-heading font-normal leading-tight transition-colors duration-500 group-hover:text-primary ${index === 0 ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"}`}>
+                        {article.title}
+                      </h2>
+                      <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">{article.excerpt}</p>
+                      <span className="mt-6 inline-block border-b border-primary pb-1 text-[10px] uppercase tracking-[0.22em] text-primary">Read the article</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </section>
 
