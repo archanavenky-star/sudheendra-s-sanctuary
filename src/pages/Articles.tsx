@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import SiteLayout from "@/components/SiteLayout";
 import { getArticlesByType } from "@/data/content";
 import bodhi from "@/assets/bodhi-leaf.png";
 import CollectionPage from "@/components/CollectionPage";
