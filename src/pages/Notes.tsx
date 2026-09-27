@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import SiteLayout from "@/components/SiteLayout";
 import { getArticlesByType } from "@/data/content";
+import InsightsEmblem from "@/components/InsightsEmblem";
 
 const Notes = () => {
   const items = getArticlesByType("note");
@@ -9,9 +10,9 @@ const Notes = () => {
     <SiteLayout>
       <div className="fade-in">
         <div className="py-8 text-center">
-          <span className="block h-px w-10 bg-primary/40 mx-auto mb-5" />
-          <h2 className="font-heading text-2xl font-medium text-primary mb-2">Short Notes</h2>
-          <p className="text-sm text-muted-foreground font-body">Brief insights and observations.</p>
+          <InsightsEmblem className="mx-auto mb-4 h-14 w-14 text-primary/70" />
+          <h2 className="font-heading text-2xl font-medium text-primary mb-2">Insights</h2>
+          <p className="text-sm text-muted-foreground font-body">Distilled thoughts for quiet contemplation.</p>
         </div>
         <div className="space-y-10">
           {items.map((article) => (
