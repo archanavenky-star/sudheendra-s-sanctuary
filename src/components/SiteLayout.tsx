@@ -21,7 +21,7 @@ const SiteLayout = ({
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-border/70">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center px-6 py-5 sm:grid-cols-[150px_1fr_150px] md:px-10 md:py-7">
-          <Link to="/" className="justify-self-center sm:justify-self-start" aria-label="I Am The World home">
+          <Link to="/" className="justify-self-start" aria-label="I Am The World home">
             <img
               src={logo}
               alt="I Am The World — What runs the world runs the me"
