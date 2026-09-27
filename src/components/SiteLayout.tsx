@@ -21,15 +21,12 @@ const SiteLayout = ({
     <div className="min-h-screen flex flex-col">
       <header className="pt-10 pb-6 md:pt-14">
         <div className="max-w-[640px] mx-auto px-6">
-          <Link to="/" className="flex flex-col items-center mb-6">
+          <Link to="/" className="flex flex-col items-center mb-8">
             <img
               src={logo}
-              alt="I Am The World"
-              className="h-20 md:h-24 w-auto"
+              alt="I Am The World — What runs the world runs the me"
+              className="h-24 md:h-28 w-auto"
             />
-            <p className="text-[0.7rem] md:text-xs tracking-[0.22em] uppercase text-primary/70 mt-4 font-body">
-              What runs the world runs the me
-            </p>
           </Link>
           <nav className="flex justify-center gap-6 md:gap-8 border-y border-border py-3">
             {navItems.map((item) => (
