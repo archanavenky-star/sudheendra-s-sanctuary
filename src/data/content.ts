@@ -74,6 +74,28 @@ Today, notice one place where you are resisting what is. Not a grand resistance 
 You may find that in that letting go, something loosens. Something breathes. And like water, you begin to find your level.`,
   },
   {
+    slug: "the-world-within",
+    title: "The World Within",
+    excerpt: "What we meet as the world is never separate from the mind through which we meet it.",
+    date: "21 January 2026",
+    type: "article",
+    body: `We speak of the world as though it exists at a distance — a vast arrangement of people, places, and events unfolding somewhere outside us. Yet every world we have ever known has appeared here, within awareness.
+
+The tree, the voice, the remembered face, the distant mountain: each arrives as an experience. We do not meet life apart from perception. We meet the movement of life and the movement of ourselves together.
+
+## The Inner Measure
+
+When the mind is restless, the world seems restless. When the mind is guarded, every encounter carries the possibility of threat. This does not mean that circumstance is imaginary. It means that circumstance and the one who perceives it cannot be neatly divided.
+
+To understand the world, then, is also to understand the lens through which it is seen.
+
+## Looking Without Conclusion
+
+Can we look before naming? Can we listen before preparing a reply? In that brief openness, the familiar world becomes new. What seemed fixed reveals itself as a living relationship between awareness and appearance.
+
+The invitation is not to withdraw from life, but to meet it more intimately. When the division between inner and outer softens, care is no longer an ideal. It becomes the natural movement of seeing that nothing is truly apart.`,
+  },
+  {
     slug: "on-presence",
     title: "On Presence",
     excerpt: "You are not your past. You are not your future. You are this.",

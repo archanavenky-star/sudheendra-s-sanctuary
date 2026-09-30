@@ -78,7 +78,7 @@ const SiteLayout = ({
                       alt="Sudheendra Chaitanya"
                       width={900}
                       height={1100}
-                      className="aspect-[4/5] w-full object-cover object-top"
+                      className="aspect-[5/4] w-full object-cover object-center"
                     />
                   </div>
                   <SheetTitle className="mt-7 font-heading text-5xl font-normal leading-tight text-primary md:text-6xl">
