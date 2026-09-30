@@ -8,4 +8,4 @@
 - [x] Verify desktop and mobile reading behavior.
 - [x] Retain Home II as the sole home page and remove the original home route and navigation tab.
 - [x] Refine Home with the author portrait, three article blurbs, a series index, and the website tagline.
-- [ ] Replace the failed blank splash preview with a visible, on-brand concept before implementation.
+- [x] Replace the failed blank splash preview with a visible, on-brand Himalayan dawn opening.

@@ -5,3 +5,4 @@
 - Use a desktop-first 1440px editorial grid for discovery and page headers, while preserving a narrower measure only for long-form body text, because the publication should feel expansive without sacrificing readability.
 - Use the approved expansive editorial composition as the sole home page, because the earlier concept has been retired.
 - Treat Insights as untitled text blocks in an in-page master-detail reader, because readers should browse every opening without leaving the collection.
+- Show the Himalayan dawn splash only once per browser session and only before Home, so direct reading links remain uninterrupted.
