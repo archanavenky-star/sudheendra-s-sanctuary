@@ -6,7 +6,7 @@ import banner from "@/assets/alternative-home-banner.jpg";
 import bodhi from "@/assets/bodhi-leaf.png";
 import lotus from "@/assets/lotus.png";
 
-const AlternativeHome = () => {
+const Home = () => {
   const articleEntries = getArticlesByType("article").slice(0, 2);
   const feature = articleEntries[0];
   const insight = getArticlesByType("note")[0];
@@ -110,4 +110,4 @@ const AlternativeHome = () => {
   );
 };
 
-export default AlternativeHome;
+export default Home;
