@@ -14,7 +14,7 @@ const HimalayanFooter = () => (
     <div className="relative z-10 mx-auto flex min-h-[360px] max-w-[1440px] items-start justify-between px-6 pt-20 md:min-h-[560px] md:px-12 md:pt-32 xl:px-20">
       <div>
         <p className="font-heading text-xl text-primary md:text-2xl">I Am The World</p>
-        <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Writings of Sudheendra Chaitanya</p>
+        <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-muted-foreground">What runs the world runs the me</p>
       </div>
     </div>
   </footer>
