@@ -6,3 +6,4 @@
 - [x] Build the in-page Insights reader with 8–10 always-visible opening excerpts.
 - [x] Add persistent half-clipped category emblems to Insights, Articles, and Series reading views.
 - [x] Verify desktop and mobile reading behavior.
+- [x] Retain Home II as the sole home page and remove the original home route and navigation tab.
