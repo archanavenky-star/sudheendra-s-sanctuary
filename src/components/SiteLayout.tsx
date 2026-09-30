@@ -13,7 +13,6 @@ import {
 
 const navItems = [
   { path: "/", label: "Home" },
-  { path: "/home-alternative", label: "Home II" },
   { path: "/articles", label: "Articles" },
   { path: "/notes", label: "Insights" },
   { path: "/series", label: "Series" },
@@ -54,7 +53,7 @@ const SiteLayout = ({
               </Link>
             ))}
           </nav>
-          {location.pathname === "/home-alternative" ? (
+          {location.pathname === "/" ? (
             <Sheet>
               <SheetTrigger asChild>
                 <Button
