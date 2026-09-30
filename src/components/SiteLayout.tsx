@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/iatw-logo.svg";
+import authorPhoto from "@/assets/author-bio.jpg";
 import HimalayanFooter from "@/components/HimalayanFooter";
 import { Button } from "@/components/ui/button";
 import {
@@ -71,6 +72,15 @@ const SiteLayout = ({
                   <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                     The writer
                   </p>
+                  <div className="mt-7 overflow-hidden border border-border">
+                    <img
+                      src={authorPhoto}
+                      alt="Sudheendra Chaitanya"
+                      width={900}
+                      height={1100}
+                      className="aspect-[5/4] w-full object-cover object-center"
+                    />
+                  </div>
                   <SheetTitle className="mt-7 font-heading text-5xl font-normal leading-tight text-primary md:text-6xl">
                     Sudheendra Chaitanya
                   </SheetTitle>

@@ -7,12 +7,12 @@ import bodhi from "@/assets/bodhi-leaf.png";
 import lotus from "@/assets/lotus.png";
 
 const Home = () => {
-  const articleEntries = getArticlesByType("article").slice(0, 2);
+  const articleEntries = getArticlesByType("article").slice(0, 3);
   const feature = articleEntries[0];
   const insight = getArticlesByType("note")[0];
-  const series = getSeriesGroups()[0];
+  const seriesGroups = getSeriesGroups();
 
-  if (!feature || !insight || !series) return null;
+  if (!feature || !insight || seriesGroups.length === 0) return null;
 
   return (
     <SiteLayout wide>
@@ -41,7 +41,7 @@ const Home = () => {
           <div className="grid gap-y-28 md:grid-cols-12 md:gap-x-10 md:gap-y-40">
             <section className="md:col-span-8">
               <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-[180px_1fr] md:gap-14">
-                <Link to="/articles" className="group self-start" aria-label="Browse all articles">
+                <Link to="/articles" className="group w-32 self-start text-center md:w-40" aria-label="Browse all articles">
                   <img src={bodhi} alt="" className="h-auto w-32 opacity-75 transition-all duration-700 group-hover:opacity-100 md:w-40" />
                   <p className="mt-6 text-[10px] uppercase tracking-[0.28em] text-primary">Articles</p>
                 </Link>
@@ -81,20 +81,21 @@ const Home = () => {
 
             <section className="md:col-span-9 md:col-start-3">
               <div className="grid overflow-hidden bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
-                <Link to="/series" className="group flex min-h-[330px] items-center justify-center border-b border-primary-foreground/15 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
+                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/15 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
+                  <p className="mb-10 text-[10px] uppercase tracking-[0.28em] text-primary-foreground/70">Series</p>
                   <img src={lotus} alt="" className="h-auto w-44 brightness-0 invert opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 md:w-64" />
                 </Link>
                 <div className="flex flex-col justify-center p-9 md:p-14">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-primary-foreground/65">Series · {series.articles.length} parts</p>
-                  <h2 className="mt-6 font-heading text-4xl font-normal leading-tight md:text-5xl">{series.title}</h2>
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-primary-foreground/65">Unfolding enquiries</p>
+                  <h2 className="mt-6 font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
                   <p className="mt-6 max-w-lg text-sm leading-7 text-primary-foreground/75">
                     One question given the room to deepen, with each part returning from a different point of view.
                   </p>
                   <div className="mt-10 border-t border-primary-foreground/20">
-                    {series.articles.map((article) => (
-                      <Link key={article.slug} to={`/read/${article.slug}`} className="grid grid-cols-[40px_1fr_auto] gap-3 border-b border-primary-foreground/20 py-4 text-sm transition-colors duration-500 hover:text-accent">
-                        <span className="font-heading italic text-primary-foreground/45">0{article.seriesPart}</span>
-                        <span>{article.title.replace(`${series.title} — `, "")}</span>
+                    {seriesGroups.map((series) => (
+                      <Link key={series.title} to={`/read/${series.articles[0]?.slug ?? ""}`} className="grid grid-cols-[1fr_auto_auto] items-baseline gap-4 border-b border-primary-foreground/20 py-5 transition-colors duration-500 hover:text-accent">
+                        <span className="font-heading text-xl">{series.title}</span>
+                        <span className="text-[10px] uppercase tracking-[0.18em] text-primary-foreground/55">{series.articles.length} {series.articles.length === 1 ? "part" : "parts"}</span>
                         <span aria-hidden="true">→</span>
                       </Link>
                     ))}
