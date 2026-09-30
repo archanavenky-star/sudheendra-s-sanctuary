@@ -8,7 +8,7 @@ import Notes from "./pages/Notes";
 import Series from "./pages/Series";
 import ReadingPage from "./pages/ReadingPage";
 import NotFound from "./pages/NotFound";
-import AlternativeHome from "./pages/AlternativeHome";
+import Home from "./pages/Home";
 
 const queryClient = new QueryClient();
 
@@ -19,7 +19,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AlternativeHome />} />
+          <Route path="/" element={<Home />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/series" element={<Series />} />
