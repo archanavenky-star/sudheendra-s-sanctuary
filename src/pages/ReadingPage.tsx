@@ -5,6 +5,7 @@ import ReaderWatermark from "@/components/ReaderWatermark";
 import ReadingProgress from "@/components/ReadingProgress";
 import SeriesIndex from "@/components/SeriesIndex";
 import PageMeta from "@/components/PageMeta";
+import ShareWriting from "@/components/ShareWriting";
 import { getArticleBySlug, getArticlesByType, articles } from "@/data/content";
 import { newestFirst } from "@/lib/reading";
 import { useSeriesProgress } from "@/hooks/use-series-progress";
@@ -59,8 +60,9 @@ const ReadingPage = () => {
       <ReaderWatermark type={article.type} />
       <article className="reading-enter relative z-10 mx-auto max-w-[1440px] px-6 md:px-12 xl:px-20">
         <header className="grid border-b border-border py-6 md:grid-cols-12 md:py-8">
-          <div className="md:col-span-8 md:col-start-4">
-            {article.type !== "note" ? <h1 className="max-w-4xl font-heading text-4xl font-medium leading-[1.12] text-primary md:text-5xl lg:text-6xl">{article.title}</h1> : <h1 className="max-w-3xl font-heading text-3xl italic leading-relaxed text-primary md:text-4xl">An insight for quiet contemplation</h1>}
+          <div className="relative md:col-span-8 md:col-start-4">
+            <ShareWriting title={article.title} className="absolute right-0 top-0" />
+            {article.type !== "note" ? <h1 className="max-w-4xl pr-14 font-heading text-4xl font-medium leading-[1.12] text-primary md:text-5xl lg:text-6xl">{article.title}</h1> : <h1 className="max-w-3xl pr-14 font-heading text-3xl italic leading-relaxed text-primary md:text-4xl">An insight for quiet contemplation</h1>}
             {article.type === "series" && article.seriesPart && <p className="mt-5 font-heading text-lg text-foreground">Part {article.seriesPart} of {article.seriesTotalParts}</p>}
           </div>
         </header>

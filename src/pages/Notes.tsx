@@ -7,6 +7,7 @@ import ReaderWatermark from "@/components/ReaderWatermark";
 import SiteLayout from "@/components/SiteLayout";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
+import ShareWriting from "@/components/ShareWriting";
 import parchment from "@/assets/insights-parchment.jpg";
 
 type InsightBlock = { id: string; body: string };
@@ -85,7 +86,7 @@ const Notes = () => {
               <div ref={readingPanel} className="scroll-mt-28 px-6 py-10 md:px-12 md:py-16 lg:min-h-[760px] lg:px-16 xl:px-24" aria-live="polite">
                 <div className="mb-9 flex items-center justify-between border-b border-primary/20 pb-5">
                   <p className="text-xs uppercase tracking-[0.2em] text-primary">{selectedIndex + 1} of {insightBlocks.length}</p>
-                  <div className="flex gap-2"><Button variant="ghost" size="icon" className="min-h-11 min-w-11 rounded-none text-primary" disabled={selectedIndex === 0} onClick={() => selectInsight(selectedIndex - 1)} aria-label="Previous insight"><ArrowLeft className="h-4 w-4" /></Button><Button variant="ghost" size="icon" className="min-h-11 min-w-11 rounded-none text-primary" disabled={selectedIndex === insightBlocks.length - 1} onClick={() => selectInsight(selectedIndex + 1)} aria-label="Next insight"><ArrowRight className="h-4 w-4" /></Button></div>
+                  <div className="flex gap-2"><ShareWriting title={title} url={`/notes?insight=${selectedInsight?.id ?? ""}`} /><Button variant="ghost" size="icon" className="min-h-11 min-w-11 rounded-none text-primary" disabled={selectedIndex === 0} onClick={() => selectInsight(selectedIndex - 1)} aria-label="Previous insight"><ArrowLeft className="h-4 w-4" /></Button><Button variant="ghost" size="icon" className="min-h-11 min-w-11 rounded-none text-primary" disabled={selectedIndex === insightBlocks.length - 1} onClick={() => selectInsight(selectedIndex + 1)} aria-label="Next insight"><ArrowRight className="h-4 w-4" /></Button></div>
                 </div>
                 <article key={selectedIndex} className="max-w-[680px] animate-in fade-in-0 duration-300 motion-reduce:animate-none"><p className="font-heading text-2xl leading-[1.65] text-foreground md:text-3xl md:leading-[1.6]">{selectedInsight?.body}</p></article>
               </div>

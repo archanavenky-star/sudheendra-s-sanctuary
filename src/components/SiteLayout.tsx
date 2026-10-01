@@ -5,6 +5,8 @@ import authorPhoto from "@/assets/author-bio.jpg";
 import HimalayanFooter from "@/components/HimalayanFooter";
 import { Button } from "@/components/ui/button";
 import { getArticleBySlug } from "@/data/content";
+import ShareWriting from "@/components/ShareWriting";
+import WritingSearch from "@/components/WritingSearch";
 import {
   Sheet,
   SheetContent,
@@ -30,7 +32,8 @@ const SiteLayout = ({
 }) => {
   const location = useLocation();
   const isReadingPage = location.pathname.startsWith("/read/");
-  const readingType = isReadingPage ? getArticleBySlug(location.pathname.replace("/read/", ""))?.type : undefined;
+  const readingArticle = isReadingPage ? getArticleBySlug(location.pathname.replace("/read/", "")) : undefined;
+  const readingType = readingArticle?.type;
   const [headerVisible, setHeaderVisible] = useState(true);
   const previousScroll = useRef(0);
 
@@ -51,7 +54,7 @@ const SiteLayout = ({
   return (
     <div className="flex min-h-screen flex-col">
       <header className={`sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${headerVisible ? "translate-y-0" : "-translate-y-full"}`}>
-        <div className={`mx-auto grid max-w-[1440px] grid-cols-[1fr_auto] items-center px-6 sm:grid-cols-[180px_1fr_180px] md:px-12 xl:px-20 ${isReadingPage ? "py-3 md:py-4" : "py-5 md:py-7"}`}>
+        <div className={`mx-auto grid max-w-[1440px] grid-cols-[1fr_auto] items-center px-6 sm:grid-cols-[180px_1fr_280px] md:px-12 xl:px-20 ${isReadingPage ? "py-3 md:py-4" : "py-5 md:py-7"}`}>
           <Link to="/" className="justify-self-start" aria-label="I Am The World home">
             <img
               src={logo}
@@ -74,7 +77,10 @@ const SiteLayout = ({
               </Link>
             ))}
           </nav>
-          <Sheet>
+          <div className="flex items-center justify-self-end gap-1 sm:gap-2">
+            <WritingSearch />
+            <ShareWriting title={readingArticle?.title ?? "I Am The World"} className="shrink-0" />
+            <Sheet>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
@@ -114,6 +120,7 @@ const SiteLayout = ({
                 </SheetHeader>
               </SheetContent>
             </Sheet>
+          </div>
         </div>
       </header>
 
