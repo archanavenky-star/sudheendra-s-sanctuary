@@ -32,6 +32,7 @@ const SiteLayout = ({
 }) => {
   const location = useLocation();
   const isReadingPage = location.pathname.startsWith("/read/");
+  const isHomePage = location.pathname === "/";
   const readingArticle = isReadingPage ? getArticleBySlug(location.pathname.replace("/read/", "")) : undefined;
   const readingType = readingArticle?.type;
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -55,7 +56,21 @@ const SiteLayout = ({
     <div className="flex min-h-screen flex-col">
       <header className={`sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${headerVisible ? "translate-y-0" : "-translate-y-full"}`}>
         <div className={`mx-auto grid max-w-[1440px] grid-cols-[1fr_auto] items-center px-6 sm:grid-cols-[180px_1fr_280px] md:px-12 xl:px-20 ${isReadingPage ? "py-3 md:py-4" : "py-5 md:py-7"}`}>
-          <Link to="/" className="justify-self-start" aria-label="I Am The World home">
+          <Link
+            to="/"
+            className="justify-self-start"
+            aria-label={isHomePage ? "Open the I Am The World welcome page" : "I Am The World home"}
+            onClick={(event) => {
+              if (!isHomePage) return;
+              event.preventDefault();
+              try {
+                window.sessionStorage.removeItem("iatw-splash-seen");
+              } catch {
+                // Reloading still allows the splash to open when storage is unavailable.
+              }
+              window.location.reload();
+            }}
+          >
             <img
               src={logo}
               alt="I Am The World — What runs the world runs the me"
