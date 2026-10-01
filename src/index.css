@@ -79,13 +79,22 @@
     font-family: var(--font-heading);
   }
 
-  a, button, [role="button"] {
+  a, button, [role="button"], summary {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
     -webkit-tap-highlight-color: transparent;
+    transition-property: color, background-color, border-color, opacity, transform, filter;
+    transition-duration: 220ms;
+    transition-timing-function: ease-out;
   }
 
-  a:active, button:active, [role="button"]:active {
-    opacity: 0.72;
+  a:hover, button:hover, [role="button"]:hover, summary:hover {
+    filter: brightness(0.94);
+  }
+
+  a:active, button:active, [role="button"]:active, summary:active {
+    opacity: 0.84;
+    transform: translateY(1px) scale(0.985);
+    transition-duration: 90ms;
   }
 }
 

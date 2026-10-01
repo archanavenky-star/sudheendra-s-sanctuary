@@ -58,7 +58,7 @@ const ReadingPage = () => {
       <ReadingProgress />
       <ReaderWatermark type={article.type} />
       <article className="reading-enter relative z-10 mx-auto max-w-[1440px] px-6 md:px-12 xl:px-20">
-        <header className="grid border-b border-border py-8 md:grid-cols-12 md:py-12">
+        <header className="grid border-b border-border py-6 md:grid-cols-12 md:py-8">
           <div className="md:col-span-8 md:col-start-4">
             {article.type !== "note" ? <h1 className="max-w-4xl font-heading text-4xl font-medium leading-[1.12] text-primary md:text-5xl lg:text-6xl">{article.title}</h1> : <h1 className="max-w-3xl font-heading text-3xl italic leading-relaxed text-primary md:text-4xl">An insight for quiet contemplation</h1>}
             {article.type === "series" && article.seriesPart && <p className="mt-5 font-heading text-lg text-foreground">Part {article.seriesPart} of {article.seriesTotalParts}</p>}
@@ -67,7 +67,7 @@ const ReadingPage = () => {
 
         {seriesArticles.length > 0 && <details className="border-b border-border py-5 md:hidden"><summary className="min-h-11 cursor-pointer py-3 text-xs uppercase tracking-[0.18em] text-primary">In this series</summary><div className="pt-4"><SeriesIndex parts={seriesArticles} currentSlug={article.slug} completedPart={progress[article.seriesTitle ?? ""] ?? 0} /></div></details>}
 
-        <div className="grid py-10 md:grid-cols-12 md:py-14">
+        <div className="grid py-6 md:grid-cols-12 md:py-8">
           <aside className="hidden md:col-span-2 md:block">{seriesArticles.length > 0 ? <nav aria-label="Parts in this series" className="sticky top-32 border-t border-primary/30 pt-4"><p className="mb-5 text-xs uppercase tracking-[0.18em] text-muted-foreground">In this series</p><SeriesIndex parts={seriesArticles} currentSlug={article.slug} completedPart={progress[article.seriesTitle ?? ""] ?? 0} /></nav> : <div className="sticky top-32 border-t border-primary/30 pt-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">Read slowly<br />Return often</div>}</aside>
           <div className="prose-reading md:col-span-7 md:col-start-4 md:mx-0">{renderBody(article.body)}</div>
         </div>
