@@ -19,7 +19,7 @@ const CollectionPage = ({ title, description, items, emblem, kind }: CollectionP
       <header className="grid border-b border-border pb-14 md:grid-cols-12 md:pb-20">
         <div className="flex items-start text-primary/75 md:col-span-2">{emblem}</div>
         <div className="mt-8 md:col-span-7 md:col-start-4 md:mt-0">
-          <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">A collection of</p>
+          <p className="mb-5 text-xs uppercase tracking-[0.28em] text-muted-foreground">A collection of</p>
           <h1 className="font-heading text-5xl leading-none text-primary md:text-7xl">{title}</h1>
           <p className="mt-7 max-w-xl font-heading text-xl italic leading-relaxed text-foreground/70 md:text-2xl">{description}</p>
         </div>
@@ -31,7 +31,7 @@ const CollectionPage = ({ title, description, items, emblem, kind }: CollectionP
           <Link key={article.slug} to={`/read/${article.slug}`} className="writing-row group grid py-10 md:grid-cols-12 md:py-14">
             <div className="flex items-baseline gap-4 md:col-span-2">
               <span className="font-heading text-3xl italic text-primary/25">{String(index + 1).padStart(2, "0")}</span>
-              <span className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground md:hidden">{article.date}</span>
+              <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground md:hidden">{article.date}</span>
             </div>
             <article className="mt-5 md:col-span-6 md:col-start-4 md:mt-0">
               <p className="hidden text-xs uppercase tracking-[0.16em] text-muted-foreground md:block">{article.date} · {readingTime(article.body)} min read · {kind}</p>

@@ -63,7 +63,7 @@ const SiteLayout = ({
                 key={item.path}
                 to={item.path}
                 className={`relative min-h-11 py-3 text-xs uppercase tracking-[0.16em] font-body transition-colors duration-500 ${
-                  location.pathname === item.path || (item.path === "/articles" && isReadingPage)
+                  location.pathname === item.path
                     ? "text-primary after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-primary"
                     : "text-muted-foreground hover:text-primary"
                 }`}

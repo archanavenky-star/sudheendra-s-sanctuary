@@ -50,6 +50,10 @@ const Notes = () => {
 
   const title = useMemo(() => selectedInsight ? `Insight ${selectedIndex + 1} of ${insightBlocks.length}` : "Insights", [selectedIndex, selectedInsight]);
 
+  useEffect(() => {
+    if (!requestedId && insightBlocks[0]) setSearchParams({ insight: insightBlocks[0].id }, { replace: true });
+  }, [requestedId, setSearchParams]);
+
   return (
     <SiteLayout wide>
       <PageMeta title={title} description={selectedInsight?.body.slice(0, 155) ?? "Brief illuminations for quiet contemplation."} />

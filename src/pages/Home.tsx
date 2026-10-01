@@ -30,7 +30,7 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/65 via-foreground/20 to-transparent" />
           <div className="relative flex min-h-[480px] max-w-[760px] flex-col justify-end px-7 pb-12 text-primary-foreground md:min-h-[650px] md:px-16 md:pb-20">
-            <p className="mb-5 text-[10px] uppercase tracking-[0.28em] text-primary-foreground/75">Writings of Sudheendra Chaitanya</p>
+             <p className="mb-5 text-xs uppercase tracking-[0.28em] text-primary-foreground/75">Writings of Sudheendra Chaitanya</p>
             <h1 className="font-heading text-5xl font-normal leading-[1.06] md:text-8xl">
               To look closely.<br />To remain still.
             </h1>
@@ -41,13 +41,13 @@ const Home = () => {
           </div>
         </header>
 
-        <main className="mx-auto max-w-[1440px] px-6 pb-8 pt-24 md:px-12 md:pt-36 xl:px-20">
+        <div className="mx-auto max-w-[1440px] px-6 pb-8 pt-24 md:px-12 md:pt-36 xl:px-20">
           <div className="grid gap-y-28 md:grid-cols-12 md:gap-x-10 md:gap-y-40">
             {articleEntries.length > 0 && <section className="md:col-span-8">
               <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-[180px_1fr] md:gap-14">
                 <Link to="/articles" className="group w-32 self-start text-center md:w-40" aria-label="Browse all articles">
                   <img src={bodhi} alt="" className="h-auto w-32 opacity-75 transition-all duration-700 group-hover:opacity-100 md:w-40" />
-                  <p className="mt-6 text-[10px] uppercase tracking-[0.28em] text-primary">Articles</p>
+                  <p className="mt-6 text-xs uppercase tracking-[0.28em] text-primary">Articles</p>
                 </Link>
                 <div>
                   {articleEntries.map((article, index) => (
@@ -84,24 +84,24 @@ const Home = () => {
             </section>}
 
             {seriesGroups.length > 0 && <section className="md:col-span-9 md:col-start-3">
-              <div className="grid overflow-hidden bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
-                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/15 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
-                  <p className="mb-10 text-[10px] uppercase tracking-[0.28em] text-primary-foreground/70">Series</p>
-                  <img src={lotus} alt="" className="h-auto w-44 brightness-0 invert opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 md:w-64" />
+              <div className="grid overflow-hidden border border-border bg-card text-foreground md:grid-cols-[0.8fr_1.2fr]">
+                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-border p-10 md:min-h-[470px] md:border-b-0 md:border-r">
+                  <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary">Series</p>
+                  <img src={lotus} alt="" className="h-auto w-44 opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 md:w-64" />
                 </Link>
                 <div className="flex flex-col justify-center p-9 md:p-14">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-primary-foreground/65">Unfolding enquiries</p>
+                  <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">Unfolding enquiries</p>
                   <h2 className="mt-6 font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
-                  <p className="mt-6 max-w-lg text-sm leading-7 text-primary-foreground/75">
+                  <p className="mt-6 max-w-lg text-sm leading-7 text-muted-foreground">
                     One question given the room to deepen, with each part returning from a different point of view.
                   </p>
-                  <div className="mt-10 border-t border-primary-foreground/20">
+                  <div className="mt-10 border-t border-border">
                      {seriesGroups.map((series) => {
                        const completed = progress[series.title] ?? 0;
                        const target = series.articles.find((part) => (part.seriesPart ?? 0) > completed) ?? series.articles[series.articles.length - 1];
-                       return target ? <Link key={series.title} to={`/read/${target.slug}`} className="grid grid-cols-[1fr_auto_auto] items-baseline gap-4 border-b border-primary-foreground/20 py-5 transition-colors duration-500 hover:text-background">
+                       return target ? <Link key={series.title} to={`/read/${target.slug}`} className="grid grid-cols-[1fr_auto_auto] items-baseline gap-4 border-b border-border py-5 text-primary transition-colors duration-500 hover:text-foreground">
                         <span className="font-heading text-xl">{series.title}</span>
-                         <span className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">{completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`}</span>
+                         <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`}</span>
                         <span aria-hidden="true">→</span>
                        </Link> : null;
                      })}
@@ -111,7 +111,7 @@ const Home = () => {
             </section>}
           </div>
 
-        </main>
+        </div>
       </div>
     </SiteLayout>
   );
