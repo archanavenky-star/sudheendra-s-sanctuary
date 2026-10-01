@@ -11,6 +11,7 @@ import Series from "./pages/Series";
 import ReadingPage from "./pages/ReadingPage";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const AppRoutes = () => {
 
   return (
     <div key={location.pathname} className="route-enter">
+      <ScrollReveal />
       <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />

@@ -87,7 +87,7 @@ const Notes = () => {
                   <p className="text-xs uppercase tracking-[0.2em] text-primary">{selectedIndex + 1} of {insightBlocks.length}</p>
                   <div className="flex gap-2"><Button variant="ghost" size="icon" className="min-h-11 min-w-11 rounded-none text-primary" disabled={selectedIndex === 0} onClick={() => selectInsight(selectedIndex - 1)} aria-label="Previous insight"><ArrowLeft className="h-4 w-4" /></Button><Button variant="ghost" size="icon" className="min-h-11 min-w-11 rounded-none text-primary" disabled={selectedIndex === insightBlocks.length - 1} onClick={() => selectInsight(selectedIndex + 1)} aria-label="Next insight"><ArrowRight className="h-4 w-4" /></Button></div>
                 </div>
-                <article key={selectedIndex} className="max-w-[680px] animate-in fade-in-0 duration-300 motion-reduce:animate-none"><p className="font-heading text-2xl leading-[1.65] text-foreground md:text-3xl md:leading-[1.6]">{selectedInsight?.body}</p><p className="mt-16 border-t border-primary/20 pt-6 text-sm italic text-muted-foreground">Sudheendra Chaitanya writes on enquiry, awareness, and the quiet movement of life.</p></article>
+                <article key={selectedIndex} className="max-w-[680px] animate-in fade-in-0 duration-300 motion-reduce:animate-none"><p className="font-heading text-2xl leading-[1.65] text-foreground md:text-3xl md:leading-[1.6]">{selectedInsight?.body}</p></article>
               </div>
             </div>
           </section>

@@ -85,13 +85,10 @@ const SiteLayout = ({
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-full overflow-y-auto border-primary/20 bg-background px-8 pb-12 pt-24 shadow-2xl sm:max-w-[520px] md:px-14 md:pt-32 [&>button]:right-7 [&>button]:top-7 [&>button]:flex [&>button]:h-10 [&>button]:w-10 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-none [&>button]:border [&>button]:border-primary/30 [&>button]:text-primary [&>button>svg]:h-5 [&>button>svg]:w-5"
+                className="w-full overflow-y-auto border-primary/20 bg-background px-8 pb-12 pt-20 shadow-2xl sm:max-w-[520px] md:px-14 md:pt-24 [&>button]:right-5 [&>button]:top-5 [&>button]:flex [&>button]:h-8 [&>button]:w-8 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-full [&>button]:border-0 [&>button]:text-primary/50 [&>button]:opacity-70 [&>button]:transition-colors [&>button]:hover:bg-muted [&>button]:hover:text-primary [&>button>svg]:h-3.5 [&>button>svg]:w-3.5"
               >
                 <SheetHeader className="space-y-0 text-left">
-                  <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-                    The writer
-                  </p>
-                  <div className="mt-7 overflow-hidden border border-border">
+                  <div className="overflow-hidden border border-border">
                     <img
                       src={authorPhoto}
                       alt="Sudheendra Chaitanya"
