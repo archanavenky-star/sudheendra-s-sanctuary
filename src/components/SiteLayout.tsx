@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/iatw-logo.svg";
 import authorPhoto from "@/assets/author-bio.jpg";
@@ -27,16 +28,33 @@ const SiteLayout = ({
   wide?: boolean;
 }) => {
   const location = useLocation();
+  const isReadingPage = location.pathname.startsWith("/read/");
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const previousScroll = useRef(0);
+
+  useEffect(() => {
+    if (!isReadingPage) {
+      setHeaderVisible(true);
+      return;
+    }
+    const handleScroll = () => {
+      const current = window.scrollY;
+      setHeaderVisible(current < 80 || current < previousScroll.current);
+      previousScroll.current = current;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isReadingPage]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-[1fr_auto] items-center px-6 py-5 sm:grid-cols-[180px_1fr_180px] md:px-12 md:py-7 xl:px-20">
+    <div className="flex min-h-screen flex-col">
+      <header className={`sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-sm transition-transform duration-300 ${headerVisible ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className={`mx-auto grid max-w-[1440px] grid-cols-[1fr_auto] items-center px-6 sm:grid-cols-[180px_1fr_180px] md:px-12 xl:px-20 ${isReadingPage ? "py-3 md:py-4" : "py-5 md:py-7"}`}>
           <Link to="/" className="justify-self-start" aria-label="I Am The World home">
             <img
               src={logo}
               alt="I Am The World — What runs the world runs the me"
-              className="h-[76px] w-auto md:h-[88px]"
+              className={`w-auto ${isReadingPage ? "h-[58px] md:h-[66px]" : "h-[76px] md:h-[88px]"}`}
             />
           </Link>
           <nav className="col-span-2 mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1 sm:col-span-1 sm:mt-0 md:gap-x-8" aria-label="Main navigation">
@@ -44,8 +62,8 @@ const SiteLayout = ({
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative py-2 text-[11px] uppercase tracking-[0.16em] font-body transition-colors duration-500 ${
-                  location.pathname === item.path
+                className={`relative min-h-11 py-3 text-xs uppercase tracking-[0.16em] font-body transition-colors duration-500 ${
+                  location.pathname === item.path || (item.path === "/articles" && isReadingPage)
                     ? "text-primary after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-primary"
                     : "text-muted-foreground hover:text-primary"
                 }`}
@@ -54,12 +72,11 @@ const SiteLayout = ({
               </Link>
             ))}
           </nav>
-          {location.pathname === "/" ? (
-            <Sheet>
+          <Sheet>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="h-auto justify-self-end rounded-none border-b border-primary/45 px-0 py-2 font-body text-[10px] font-normal uppercase tracking-[0.16em] text-primary hover:bg-transparent hover:text-foreground sm:text-right"
+                  className="min-h-11 justify-self-end rounded-none border-b border-primary/45 px-0 py-2 font-body text-xs font-normal uppercase tracking-[0.16em] text-primary hover:bg-transparent hover:text-foreground sm:text-right"
                 >
                   Meet the Author
                 </Button>
@@ -69,7 +86,7 @@ const SiteLayout = ({
                 className="w-full overflow-y-auto border-primary/20 bg-background px-8 pb-12 pt-24 shadow-2xl sm:max-w-[520px] md:px-14 md:pt-32 [&>button]:right-7 [&>button]:top-7 [&>button]:flex [&>button]:h-10 [&>button]:w-10 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-none [&>button]:border [&>button]:border-primary/30 [&>button]:text-primary [&>button>svg]:h-5 [&>button>svg]:w-5"
               >
                 <SheetHeader className="space-y-0 text-left">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                  <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
                     The writer
                   </p>
                   <div className="mt-7 overflow-hidden border border-border">
@@ -98,9 +115,6 @@ const SiteLayout = ({
                 </SheetHeader>
               </SheetContent>
             </Sheet>
-          ) : (
-            <span aria-hidden="true" className="hidden sm:block" />
-          )}
         </div>
       </header>
 
