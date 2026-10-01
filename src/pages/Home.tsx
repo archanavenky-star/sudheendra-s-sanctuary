@@ -80,24 +80,24 @@ const Home = () => {
             </section>}
 
             {seriesGroups.length > 0 && <section className="md:col-span-9 md:col-start-3">
-              <div className="grid overflow-hidden border border-border bg-card text-foreground md:grid-cols-[0.8fr_1.2fr]">
-                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-border p-10 md:min-h-[470px] md:border-b-0 md:border-r">
-                  <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary">Series</p>
-                  <img src={lotus} alt="" className="h-auto w-[142px] opacity-75 transition-opacity duration-700 group-hover:opacity-100" />
+              <div className="grid overflow-hidden border border-primary bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
+                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/25 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
+                  <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary-foreground/80">Series</p>
+                  <img src={lotus} alt="" className="h-auto w-[142px] brightness-0 invert opacity-90 transition-opacity duration-700 group-hover:opacity-100" />
                 </Link>
                 <div className="flex flex-col justify-center p-9 md:p-14">
                   <h2 className="font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
-                  <p className="mt-6 max-w-lg text-sm leading-7 text-muted-foreground">
+                   <p className="mt-6 max-w-lg text-sm leading-7 text-primary-foreground/75">
                     One question given the room to deepen, with each part returning from a different point of view.
                   </p>
-                  <div className="mt-10 border-t border-border">
+                  <div className="mt-10 border-t border-primary-foreground/25">
                      {seriesGroups.map((series) => {
                        const completed = progress[series.title] ?? 0;
                        const target = series.articles.find((part) => (part.seriesPart ?? 0) > completed) ?? series.articles[series.articles.length - 1];
                        const allFinished = completed >= series.articles.length;
-                       return target ? <Link key={series.title} to={`/read/${target.slug}`} className="grid grid-cols-[1fr_auto_auto] items-baseline gap-4 border-b border-border py-5 text-primary transition-colors duration-500 hover:text-foreground">
+                       return target ? <Link key={series.title} to={`/read/${target.slug}`} className="grid grid-cols-[1fr_auto_auto] items-baseline gap-4 border-b border-primary-foreground/25 py-5 text-primary-foreground transition-opacity duration-500 hover:opacity-75">
                         <span className="font-heading text-xl">{series.title}</span>
-                         <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{allFinished ? "Read again" : completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`}</span>
+                          <span className="text-xs uppercase tracking-[0.18em] text-primary-foreground/70">{allFinished ? "Read again" : completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`}</span>
                         <span aria-hidden="true">→</span>
                        </Link> : null;
                      })}
