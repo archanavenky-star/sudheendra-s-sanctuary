@@ -7,3 +7,4 @@
 - Treat Insights as untitled text blocks in an in-page master-detail reader, because readers should browse every opening without leaving the collection.
 - Show the Himalayan dawn splash only once per browser session and only before Home, so direct reading links remain uninterrupted.
 - Use a dedicated semantic action color for reading and navigation prompts so clickable text stays consistent across the publication.
+- Keep reader progress entirely in browser storage and derive navigation metadata from static content, because the publication must remain private and backend-free.

@@ -4,6 +4,7 @@ import logo from "@/assets/iatw-logo.svg";
 import authorPhoto from "@/assets/author-bio.jpg";
 import HimalayanFooter from "@/components/HimalayanFooter";
 import { Button } from "@/components/ui/button";
+import { getArticleBySlug } from "@/data/content";
 import {
   Sheet,
   SheetContent,
@@ -29,6 +30,7 @@ const SiteLayout = ({
 }) => {
   const location = useLocation();
   const isReadingPage = location.pathname.startsWith("/read/");
+  const readingType = isReadingPage ? getArticleBySlug(location.pathname.replace("/read/", ""))?.type : undefined;
   const [headerVisible, setHeaderVisible] = useState(true);
   const previousScroll = useRef(0);
 
@@ -63,7 +65,7 @@ const SiteLayout = ({
                 key={item.path}
                 to={item.path}
                 className={`relative min-h-11 py-3 text-xs uppercase tracking-[0.16em] font-body transition-colors duration-500 ${
-                  location.pathname === item.path
+                  location.pathname === item.path || (readingType === "article" && item.path === "/articles") || (readingType === "note" && item.path === "/notes") || (readingType === "series" && item.path === "/series")
                     ? "text-primary after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-primary"
                     : "text-muted-foreground hover:text-primary"
                 }`}
