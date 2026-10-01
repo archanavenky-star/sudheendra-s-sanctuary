@@ -26,11 +26,11 @@ const Home = () => {
             alt="Dawn opening across a Himalayan valley"
             width={1920}
             height={900}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/65 via-foreground/20 to-transparent" />
-          <div className="relative flex min-h-[420px] max-w-[760px] flex-col justify-end px-7 pb-12 text-primary-foreground md:h-full md:min-h-0 md:px-16 md:pb-16">
-            <h1 className="font-heading text-5xl font-normal leading-[1.06] md:text-8xl">
+          <div className="relative flex min-h-[420px] max-w-[760px] flex-col justify-end px-7 pb-12 pt-10 text-primary-foreground md:h-full md:min-h-0 md:px-16 md:pb-12 md:pt-12">
+            <h1 className="font-heading text-5xl font-normal leading-[1.06] md:text-7xl">
               To look closely.<br />To remain still.
             </h1>
             <p className="mt-7 max-w-lg text-base leading-8 text-primary-foreground/85">
