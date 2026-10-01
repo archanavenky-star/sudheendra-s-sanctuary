@@ -5,9 +5,8 @@ import { getArticlesByType, getSeriesGroups } from "@/data/content";
 import PageMeta from "@/components/PageMeta";
 import { newestFirst } from "@/lib/reading";
 import { useSeriesProgress } from "@/hooks/use-series-progress";
+import { BodhiLeafEmblem, LotusEmblem } from "@/components/CategoryEmblems";
 import banner from "@/assets/alternative-home-banner.jpg";
-import bodhi from "@/assets/bodhi-leaf.png";
-import lotus from "@/assets/lotus.png";
 
 const Home = () => {
   const articleEntries = newestFirst(getArticlesByType("article")).slice(0, 3);
@@ -30,7 +29,7 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/65 via-foreground/20 to-transparent" />
           <div className="relative flex min-h-[480px] max-w-[760px] flex-col justify-end px-7 pb-12 text-primary-foreground md:min-h-[650px] md:px-16 md:pb-20">
-             <p className="mb-5 text-xs uppercase tracking-[0.28em] text-primary-foreground/75">Writings of Sudheendra Chaitanya</p>
+            <p className="mb-6 max-w-xl font-heading text-lg italic leading-relaxed text-primary-foreground/85 md:text-xl">Sudheendra Chaitanya writes on enquiry, awareness, and the quiet movement of life.</p>
             <h1 className="font-heading text-5xl font-normal leading-[1.06] md:text-8xl">
               To look closely.<br />To remain still.
             </h1>
@@ -46,7 +45,7 @@ const Home = () => {
             {articleEntries.length > 0 && <section className="md:col-span-8">
               <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-[180px_1fr] md:gap-14">
                 <Link to="/articles" className="group w-32 self-start text-center md:w-40" aria-label="Browse all articles">
-                  <img src={bodhi} alt="" className="h-auto w-32 opacity-75 transition-all duration-700 group-hover:opacity-100 md:w-40" />
+                  <BodhiLeafEmblem className="mx-auto h-auto w-24 text-primary opacity-75 transition-opacity duration-700 group-hover:opacity-100 md:w-32" />
                   <p className="mt-6 text-xs uppercase tracking-[0.28em] text-primary">Articles</p>
                 </Link>
                 <div>
@@ -56,10 +55,7 @@ const Home = () => {
                       to={`/read/${article.slug}`}
                       className={`group block ${index > 0 ? "mt-12 border-t border-border pt-9" : ""}`}
                     >
-                       <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                        {index === 0 ? "A sustained enquiry" : "From the articles"} · {article.date}
-                      </p>
-                      <h2 className={`mt-5 max-w-3xl font-heading font-normal leading-tight transition-colors duration-500 group-hover:text-primary ${index === 0 ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"}`}>
+                      <h2 className={`max-w-3xl font-heading font-normal leading-tight transition-colors duration-500 group-hover:text-primary ${index === 0 ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"}`}>
                         {article.title}
                       </h2>
                       <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">{article.excerpt}</p>
@@ -87,11 +83,10 @@ const Home = () => {
               <div className="grid overflow-hidden border border-border bg-card text-foreground md:grid-cols-[0.8fr_1.2fr]">
                 <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-border p-10 md:min-h-[470px] md:border-b-0 md:border-r">
                   <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary">Series</p>
-                  <img src={lotus} alt="" className="h-auto w-44 opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 md:w-64" />
+                  <LotusEmblem className="h-auto w-44 text-primary opacity-75 transition-opacity duration-700 group-hover:opacity-100 md:w-64" />
                 </Link>
                 <div className="flex flex-col justify-center p-9 md:p-14">
-                  <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">Unfolding enquiries</p>
-                  <h2 className="mt-6 font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
+                  <h2 className="font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
                   <p className="mt-6 max-w-lg text-sm leading-7 text-muted-foreground">
                     One question given the room to deepen, with each part returning from a different point of view.
                   </p>

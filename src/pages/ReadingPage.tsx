@@ -6,7 +6,7 @@ import ReadingProgress from "@/components/ReadingProgress";
 import SeriesIndex from "@/components/SeriesIndex";
 import PageMeta from "@/components/PageMeta";
 import { getArticleBySlug, getArticlesByType, articles } from "@/data/content";
-import { newestFirst, readingTime } from "@/lib/reading";
+import { newestFirst } from "@/lib/reading";
 import { useSeriesProgress } from "@/hooks/use-series-progress";
 
 const ReadingPage = () => {
@@ -58,25 +58,23 @@ const ReadingPage = () => {
       <ReadingProgress />
       <ReaderWatermark type={article.type} />
       <article className="reading-enter relative z-10 mx-auto max-w-[1440px] px-6 md:px-12 xl:px-20">
-        <header className="grid border-b border-border py-12 md:grid-cols-12 md:py-20">
-          <div className="md:col-span-2"><span className="font-body text-xs uppercase tracking-[0.18em] text-muted-foreground">{article.date} · {readingTime(article.body)} min read</span></div>
-          <div className="mt-7 md:col-span-8 md:col-start-4 md:mt-0">
+        <header className="grid border-b border-border py-8 md:grid-cols-12 md:py-12">
+          <div className="md:col-span-8 md:col-start-4">
             {article.type !== "note" ? <h1 className="max-w-4xl font-heading text-4xl font-medium leading-[1.12] text-primary md:text-5xl lg:text-6xl">{article.title}</h1> : <h1 className="max-w-3xl font-heading text-3xl italic leading-relaxed text-primary md:text-4xl">An insight for quiet contemplation</h1>}
             {article.type === "series" && article.seriesPart && <p className="mt-5 font-heading text-lg text-foreground">Part {article.seriesPart} of {article.seriesTotalParts}</p>}
-            {article.type === "series" && article.seriesTitle && <p className="mt-2 text-sm text-muted-foreground">From the series: <em>{article.seriesTitle}</em></p>}
           </div>
         </header>
 
         {seriesArticles.length > 0 && <details className="border-b border-border py-5 md:hidden"><summary className="min-h-11 cursor-pointer py-3 text-xs uppercase tracking-[0.18em] text-primary">In this series</summary><div className="pt-4"><SeriesIndex parts={seriesArticles} currentSlug={article.slug} completedPart={progress[article.seriesTitle ?? ""] ?? 0} /></div></details>}
 
-        <div className="grid py-12 md:grid-cols-12 md:py-20">
+        <div className="grid py-10 md:grid-cols-12 md:py-14">
           <aside className="hidden md:col-span-2 md:block">{seriesArticles.length > 0 ? <nav aria-label="Parts in this series" className="sticky top-32 border-t border-primary/30 pt-4"><p className="mb-5 text-xs uppercase tracking-[0.18em] text-muted-foreground">In this series</p><SeriesIndex parts={seriesArticles} currentSlug={article.slug} completedPart={progress[article.seriesTitle ?? ""] ?? 0} /></nav> : <div className="sticky top-32 border-t border-primary/30 pt-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">Read slowly<br />Return often</div>}</aside>
-          <div className="prose-reading md:col-span-7 md:col-start-4 md:mx-0">{renderBody(article.body)}<p className="mt-16 border-t border-primary/20 pt-6 text-sm italic text-muted-foreground">Sudheendra Chaitanya writes on enquiry, awareness, and the quiet movement of life.</p></div>
+          <div className="prose-reading md:col-span-7 md:col-start-4 md:mx-0">{renderBody(article.body)}</div>
         </div>
 
         <div className="mx-auto max-w-[820px] border-t border-border pt-10 text-center"><span aria-hidden="true" className="font-heading text-2xl text-primary">❦</span>{forward ? <Link to={`/read/${forward.slug}`} className="mx-auto mt-5 block min-h-11 max-w-lg py-3 font-heading text-xl text-primary transition-colors hover:text-foreground">{article.type === "series" ? `Continue to Part ${forward.seriesPart}` : article.type === "article" ? "Read the next article" : "Read the next insight"} →</Link> : <Link to={back.to} className="mx-auto mt-5 block min-h-11 py-3 font-heading text-xl text-primary">Return to {back.label}</Link>}</div>
         {article.type === "series" && seriesPrev && <div className="mx-auto mt-5 max-w-[820px] text-center"><Link to={`/read/${seriesPrev.slug}`} className="inline-block min-h-11 py-3 text-sm text-muted-foreground transition-colors hover:text-primary">← Previous · Part {seriesPrev.seriesPart}</Link></div>}
-        <div className="mx-auto mt-8 max-w-[820px] text-center"><Link to={back.to} className="inline-block min-h-11 py-3 text-sm text-primary">← Back to {back.label}</Link></div>
+        <div className="mx-auto mb-2 mt-5 max-w-[820px] text-center"><Link to={back.to} className="inline-block min-h-11 py-3 text-sm text-primary">← Back to {back.label}</Link></div>
       </article>
     </SiteLayout>
   );

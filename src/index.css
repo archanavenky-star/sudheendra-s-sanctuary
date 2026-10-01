@@ -150,6 +150,17 @@
   .route-enter {
     animation: routeFade 0.4s ease-out both;
   }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 1.05s ease-out, transform 1.05s ease-out;
+  }
+
+  .scroll-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
@@ -170,6 +181,11 @@
   .fade-in, .fade-in-delay, .fade-in-delay-2, .reading-enter, .route-enter {
     animation: none;
     opacity: 1;
+  }
+
+  .scroll-reveal, .scroll-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
   }
 
   *, *::before, *::after {

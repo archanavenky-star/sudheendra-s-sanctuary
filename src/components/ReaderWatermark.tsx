@@ -1,6 +1,5 @@
-import bodhi from "@/assets/bodhi-leaf.png";
-import lotus from "@/assets/lotus.png";
 import InsightsEmblem from "@/components/InsightsEmblem";
+import { BodhiLeafEmblem, LotusEmblem } from "@/components/CategoryEmblems";
 
 type ReaderWatermarkProps = {
   type: "article" | "note" | "series";
@@ -14,11 +13,9 @@ const ReaderWatermark = ({ type }: ReaderWatermarkProps) => (
     {type === "note" ? (
       <InsightsEmblem className="absolute -right-[26vh] top-1/2 h-[78vh] w-[78vh] -translate-y-1/2 text-primary/[0.055] md:-right-[34.67vh] md:h-[104vh] md:w-[104vh]" />
     ) : (
-      <img
-        src={type === "article" ? bodhi : lotus}
-        alt=""
-        className="absolute -right-[26vh] top-1/2 h-[78vh] w-[78vh] -translate-y-1/2 object-contain opacity-[0.055] md:-right-[34.67vh] md:h-[104vh] md:w-[104vh]"
-      />
+      type === "article"
+        ? <BodhiLeafEmblem className="absolute -right-[26vh] top-1/2 h-[78vh] w-[78vh] -translate-y-1/2 text-primary/[0.055] md:-right-[34.67vh] md:h-[104vh] md:w-[104vh]" />
+        : <LotusEmblem className="absolute -right-[26vh] top-1/2 h-[78vh] w-[78vh] -translate-y-1/2 text-primary/[0.055] md:-right-[34.67vh] md:h-[104vh] md:w-[104vh]" />
     )}
   </div>
 );
