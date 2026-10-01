@@ -81,7 +81,7 @@ const Home = () => {
 
             {seriesGroups.length > 0 && <section className="md:col-span-9 md:col-start-3">
               <div className="grid overflow-hidden border border-primary bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
-                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/25 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
+                <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/25 p-10 hover:filter-none md:min-h-[470px] md:border-b-0 md:border-r">
                   <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary-foreground/80">Series</p>
                   <img src={lotus} alt="" className="h-auto w-[190px] brightness-0 invert md:w-[230px]" />
                 </Link>
