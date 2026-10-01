@@ -59,7 +59,7 @@ const Home = () => {
                         {article.title}
                       </h2>
                       <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">{article.excerpt}</p>
-                      <span className="mt-6 inline-block border-b border-primary pb-1 text-[10px] uppercase tracking-[0.22em] text-primary">Read the article</span>
+                      <span className="mt-6 inline-block border-b border-action/60 pb-1 text-[10px] uppercase tracking-[0.22em] text-action transition-colors group-hover:text-primary">Read the article</span>
                     </Link>
                   ))}
                 </div>

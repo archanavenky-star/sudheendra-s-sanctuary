@@ -24,6 +24,7 @@
 
     --accent: 33 82% 54%;
     --accent-foreground: 15 12% 16%;
+    --action: 32 76% 38%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -95,6 +96,10 @@
   .prose-reading blockquote {
     @apply border-l-2 border-primary pl-6 my-8 italic;
     color: hsl(var(--muted-foreground));
+  }
+
+  .prose-reading .prose-invocation {
+    @apply my-10 font-heading text-2xl leading-relaxed text-action md:text-3xl;
   }
 
   .writing-row:hover {

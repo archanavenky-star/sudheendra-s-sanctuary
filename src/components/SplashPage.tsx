@@ -28,7 +28,7 @@ const SplashPage = ({ onEnter }: SplashPageProps) => (
         type="button"
         variant="ghost"
         onClick={onEnter}
-        className="group h-auto rounded-none border-b border-primary/60 px-8 py-3 font-body text-xs font-normal uppercase tracking-[0.28em] text-primary hover:bg-background/30 hover:text-foreground"
+        className="group h-auto rounded-none border-b border-action/70 px-8 py-3 font-body text-xs font-normal uppercase tracking-[0.28em] text-action hover:bg-background/30 hover:text-primary"
       >
         Enter
         <span aria-hidden="true" className="transition-transform duration-500 group-hover:translate-x-1">→</span>

@@ -55,7 +55,7 @@ const Notes = () => {
                           <span className="pt-0.5 font-heading text-sm italic text-primary/45">{String(index + 1).padStart(2, "0")}</span>
                           <span>
                             <span className="block text-sm leading-6">{openingFor(insight)}</span>
-                            <span className={`mt-1 block text-[10px] uppercase tracking-[0.14em] ${isSelected ? "text-primary" : "text-muted-foreground"}`}>Read more…</span>
+                            <span className={`mt-1 block text-[10px] uppercase tracking-[0.14em] ${isSelected ? "text-primary" : "text-action"}`}>Read more…</span>
                           </span>
                         </span>
                       </Button>
