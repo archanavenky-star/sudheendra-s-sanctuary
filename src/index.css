@@ -1,3 +1,13 @@
+@font-face { font-family: 'Lora'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/font-1.ttf') format('truetype'); }
+@font-face { font-family: 'Lora'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/font-2.ttf') format('truetype'); }
+@font-face { font-family: 'Lora'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/font-3.ttf') format('truetype'); }
+@font-face { font-family: 'Lora'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/font-4.ttf') format('truetype'); }
+@font-face { font-family: 'Noto Serif Devanagari'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('/fonts/font-5.ttf') format('truetype'); }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/font-8.ttf') format('truetype'); }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/font-9.ttf') format('truetype'); }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/font-10.ttf') format('truetype'); }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/font-11.ttf') format('truetype'); }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,8 +54,8 @@
     --sidebar-border: 36 20% 82%;
     --sidebar-ring: 348 60% 25%;
 
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body: 'Lora', Georgia, serif;
+    --font-heading: 'Playfair Display', 'Noto Serif Devanagari', Georgia, serif;
+    --font-body: 'Lora', 'Noto Serif Devanagari', Georgia, serif;
     --saffron: 33 82% 54%;
     --saffron-soft: 36 86% 62%;
   }
@@ -66,6 +76,15 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
+
+  a, button, [role="button"] {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:active, button:active, [role="button"]:active {
+    opacity: 0.72;
+  }
 }
 
 @layer utilities {
@@ -73,7 +92,7 @@
     @apply max-w-[640px] mx-auto;
     font-family: var(--font-body);
     font-size: 1.125rem;
-    line-height: 1.9;
+    line-height: 1.78;
     color: hsl(var(--foreground));
   }
 
@@ -99,7 +118,7 @@
   }
 
   .prose-reading .prose-invocation {
-    @apply my-10 font-heading text-2xl leading-relaxed text-action md:text-3xl;
+    @apply my-10 font-heading text-2xl leading-relaxed text-saffron md:text-3xl;
   }
 
   .writing-row:hover {
@@ -120,6 +139,15 @@
     animation: fadeIn 0.8s ease-out 0.4s forwards;
     opacity: 0;
   }
+
+  .reading-enter {
+    animation: fadeIn 0.45s ease-out forwards;
+    opacity: 0;
+  }
+
+  .route-enter {
+    animation: routeFade 0.4s ease-out both;
+  }
 }
 
 @keyframes fadeIn {
@@ -127,9 +155,24 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes routeFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (min-width: 768px) {
+  .prose-reading { font-size: 1.22rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .fade-in, .fade-in-delay, .fade-in-delay-2 {
+  .fade-in, .fade-in-delay, .fade-in-delay-2, .reading-enter, .route-enter {
     animation: none;
     opacity: 1;
+  }
+
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
