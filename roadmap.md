@@ -10,3 +10,5 @@
 - [x] Refine Home with the author portrait, three article blurbs, a series index, and the website tagline.
 - [x] Replace the failed blank splash preview with a visible, on-brand Himalayan dawn opening.
 - [x] Highlight the first article's invocation and closing mantra, and unify key action links with a saffron-gold accent.
+
+- [x] Apply the uploaded site-wide visual, reading, progress, metadata, motion, and accessibility pointers.

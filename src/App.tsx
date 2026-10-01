@@ -40,14 +40,16 @@ const AppRoutes = () => {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/articles" element={<Articles />} />
-      <Route path="/notes" element={<Notes />} />
-      <Route path="/series" element={<Series />} />
-      <Route path="/read/:slug" element={<ReadingPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <div key={location.pathname} className="route-enter">
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/notes" element={<Notes />} />
+        <Route path="/series" element={<Series />} />
+        <Route path="/read/:slug" element={<ReadingPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 };
 
