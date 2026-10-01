@@ -26,12 +26,13 @@ const Series = () => {
           {groups.map((group) => {
             const completed = progress[group.title] ?? 0;
             const target = group.articles.find((part) => (part.seriesPart ?? 0) > completed) ?? group.articles[group.articles.length - 1];
+            const allFinished = completed >= group.articles.length;
             return (
             <section key={group.title} className="grid py-12 md:grid-cols-12 md:py-20">
               <div className="md:col-span-4">
                 <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{group.articles.length} parts</p>
                 <h2 className="mt-3 max-w-xs font-heading text-3xl leading-tight text-primary md:text-4xl">{group.title}</h2>
-                {target && <Link to={`/read/${target.slug}`} className="mt-6 inline-block border-b border-primary/50 pb-1 text-xs uppercase tracking-[0.16em] text-primary">{completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`} →</Link>}
+                {target && <Link to={`/read/${target.slug}`} className="mt-6 inline-block border-b border-primary/50 pb-1 text-xs uppercase tracking-[0.16em] text-primary">{allFinished ? "Read again" : completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`} →</Link>}
               </div>
               <div className="mt-10 divide-y divide-border md:col-span-7 md:col-start-6 md:mt-0">
                 {group.articles.map((article) => (

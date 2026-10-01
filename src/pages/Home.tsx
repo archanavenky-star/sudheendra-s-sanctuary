@@ -37,7 +37,7 @@ const Home = () => {
             <p className="mt-7 max-w-lg text-base leading-8 text-primary-foreground/85">
               Essays, insights, and unfolding enquiries into awareness and the life that moves through us.
             </p>
-            {feature && <Link to={`/read/${feature.slug}`} className="mt-8 w-fit border-b border-primary-foreground/65 pb-1 text-xs uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:text-background">Begin with the latest →</Link>}
+            {feature && <Link to={`/read/${feature.slug}`} className="mt-8 w-fit bg-background/90 px-4 py-3 text-xs uppercase tracking-[0.2em] text-primary transition-colors hover:bg-background hover:text-foreground">Begin with the latest →</Link>}
           </div>
         </header>
 
@@ -99,9 +99,10 @@ const Home = () => {
                      {seriesGroups.map((series) => {
                        const completed = progress[series.title] ?? 0;
                        const target = series.articles.find((part) => (part.seriesPart ?? 0) > completed) ?? series.articles[series.articles.length - 1];
+                       const allFinished = completed >= series.articles.length;
                        return target ? <Link key={series.title} to={`/read/${target.slug}`} className="grid grid-cols-[1fr_auto_auto] items-baseline gap-4 border-b border-border py-5 text-primary transition-colors duration-500 hover:text-foreground">
                         <span className="font-heading text-xl">{series.title}</span>
-                         <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`}</span>
+                         <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{allFinished ? "Read again" : completed > 0 ? `Continue with Part ${target.seriesPart}` : `Begin with Part ${target.seriesPart}`}</span>
                         <span aria-hidden="true">→</span>
                        </Link> : null;
                      })}
