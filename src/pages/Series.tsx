@@ -3,7 +3,7 @@ import SiteLayout from "@/components/SiteLayout";
 import { getSeriesGroups } from "@/data/content";
 import PageMeta from "@/components/PageMeta";
 import { useSeriesProgress } from "@/hooks/use-series-progress";
-import { LotusEmblem } from "@/components/CategoryEmblems";
+import lotus from "@/assets/lotus.png";
 
 const Series = () => {
   const groups = getSeriesGroups();
@@ -14,7 +14,7 @@ const Series = () => {
       <PageMeta title="Series" description="Ideas given the room to deepen, one part at a time." />
       <div className="fade-in mx-auto max-w-[1440px] px-6 pt-14 md:px-12 md:pt-24 xl:px-20">
         <header className="grid border-b border-border pb-14 md:grid-cols-12 md:pb-20">
-          <div className="md:col-span-2"><LotusEmblem className="h-20 w-auto text-primary opacity-80 md:h-28" /></div>
+          <div className="md:col-span-2"><img src={lotus} alt="" className="h-auto w-[142px] opacity-80" /></div>
           <div className="mt-8 md:col-span-7 md:col-start-4 md:mt-0">
             <h1 className="font-heading text-5xl leading-none text-primary md:text-7xl">Series</h1>
             <p className="mt-7 max-w-xl font-heading text-xl italic leading-relaxed text-foreground/70 md:text-2xl">Ideas given the room to deepen, one part at a time.</p>
