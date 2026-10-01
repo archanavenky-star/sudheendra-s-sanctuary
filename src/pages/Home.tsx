@@ -45,7 +45,7 @@ const Home = () => {
             {articleEntries.length > 0 && <section className="md:col-span-8">
               <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-[180px_1fr] md:gap-14">
                 <Link to="/articles" className="group w-32 self-start text-center md:w-40" aria-label="Browse all articles">
-                  <img src={bodhi} alt="" className="mx-auto h-auto w-[70px] opacity-75 transition-opacity duration-700 group-hover:opacity-100" />
+                  <img src={bodhi} alt="" className="mx-auto h-auto w-[100px] opacity-75 transition-opacity duration-700 group-hover:opacity-100 md:w-[128px]" />
                   <p className="mt-6 text-xs uppercase tracking-[0.28em] text-primary">Articles</p>
                 </Link>
                 <div>
@@ -70,7 +70,7 @@ const Home = () => {
               <Link to="/notes" className="group block border border-border bg-card/60 p-8 md:p-10">
                 <div className="flex items-start justify-between">
                    <p className="text-xs uppercase tracking-[0.28em] text-primary">Insight</p>
-                  <InsightsEmblem className="h-20 w-20 text-primary/65 transition-transform duration-700 group-hover:rotate-12" />
+                  <InsightsEmblem className="h-28 w-28 text-primary/65 transition-transform duration-700 group-hover:rotate-12 md:h-32 md:w-32" />
                 </div>
                 <blockquote className="mt-12 font-heading text-2xl italic leading-relaxed text-foreground md:text-3xl">
                   “{insight.excerpt}”
@@ -83,7 +83,7 @@ const Home = () => {
               <div className="grid overflow-hidden border border-primary bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
                 <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/25 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
                   <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary-foreground/80">Series</p>
-                  <img src={lotus} alt="" className="h-auto w-[142px] brightness-0 invert opacity-90 transition-opacity duration-700 group-hover:opacity-100" />
+                  <img src={lotus} alt="" className="h-auto w-[190px] brightness-0 invert opacity-90 transition-opacity duration-700 group-hover:opacity-100 md:w-[230px]" />
                 </Link>
                 <div className="flex flex-col justify-center p-9 md:p-14">
                   <h2 className="font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
