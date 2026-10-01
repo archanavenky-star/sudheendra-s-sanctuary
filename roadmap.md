@@ -12,4 +12,4 @@
 - [x] Highlight the first article's invocation and closing mantra, and unify key action links with a saffron-gold accent.
 
 - [x] Apply the uploaded site-wide visual, reading, progress, metadata, motion, and accessibility pointers.
-- [ ] Remove article and series metadata, refine reading-page spacing and motion, and replace raster emblems with sharp vectors.
+- [x] Remove article and series metadata, refine reading-page spacing and motion, and replace raster emblems with sharp vectors.
