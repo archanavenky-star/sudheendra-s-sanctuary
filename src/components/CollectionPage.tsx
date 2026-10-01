@@ -35,7 +35,7 @@ const CollectionPage = ({ title, description, items, emblem, kind }: CollectionP
               <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground md:text-base">{article.excerpt}</p>
             </article>
             <div className="mt-6 flex items-end justify-end md:col-span-2 md:col-start-11 md:mt-0">
-              <span className="text-2xl text-primary/45 transition-transform duration-500 group-hover:translate-x-2" aria-hidden="true">→</span>
+              <span className="text-2xl text-action transition-transform duration-500 group-hover:translate-x-2 group-hover:text-primary" aria-hidden="true">→</span>
             </div>
           </Link>
         ))}

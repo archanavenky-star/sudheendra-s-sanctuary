@@ -38,6 +38,16 @@ const ReadingPage = () => {
   const renderBody = (body: string) => {
     return body.split("\n\n").map((block, i) => {
       const trimmed = block.trim();
+      const isInvocation = trimmed.includes("\n") || trimmed.startsWith("ॐ ");
+      if (isInvocation) {
+        return (
+          <p key={i} className="prose-invocation">
+            {trimmed.split("\n").map((line, lineIndex) => (
+              <span key={`${i}-${lineIndex}`} className="block">{line}</span>
+            ))}
+          </p>
+        );
+      }
       if (trimmed.startsWith("## ")) {
         return <h2 key={i}>{trimmed.slice(3)}</h2>;
       }
@@ -113,12 +123,12 @@ const ReadingPage = () => {
         {article.type === "series" && (seriesNav.prev || seriesNav.next) && (
           <nav className="mx-auto mt-8 flex max-w-[820px] justify-between border-t border-border pt-8">
             {seriesNav.prev ? (
-              <Link to={`/read/${seriesNav.prev.slug}`} className="text-sm font-body text-muted-foreground hover:text-primary transition-colors">
+              <Link to={`/read/${seriesNav.prev.slug}`} className="font-body text-sm text-action transition-colors hover:text-primary">
                 ← Part {seriesNav.prev.seriesPart}
               </Link>
             ) : <span />}
             {seriesNav.next ? (
-              <Link to={`/read/${seriesNav.next.slug}`} className="text-sm font-body text-muted-foreground hover:text-primary transition-colors">
+              <Link to={`/read/${seriesNav.next.slug}`} className="font-body text-sm text-action transition-colors hover:text-primary">
                 Part {seriesNav.next.seriesPart} →
               </Link>
             ) : <span />}
@@ -126,7 +136,7 @@ const ReadingPage = () => {
         )}
 
         <div className="mx-auto mt-12 max-w-[820px] border-t border-border pt-8">
-          <Link to="/" className="text-sm font-body text-muted-foreground hover:text-primary transition-colors">
+          <Link to="/" className="font-body text-sm text-action transition-colors hover:text-primary">
             ← Back to all writings
           </Link>
         </div>
