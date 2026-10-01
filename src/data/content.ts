@@ -12,36 +12,41 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    slug: "the-silence-between-thoughts",
-    title: "The Silence Between Thoughts",
-    excerpt: "In the space where one thought ends and another begins, there exists a doorway. Most of us rush past it, unaware.",
-    date: "12 February 2026",
+    slug: "namami-tam-vinayakam",
+    title: "नमामि तं विनायकम्",
+    excerpt: "What do we seek when we visit Gaṇapati during the festival and offer our worship? Do we want him to quickly eliminate obstacles to our desires? Do we want him to prevent any external force from disturbing our peace?",
+    date: "13 September 2026",
     type: "article",
-    body: `There is a silence that lives between our thoughts. Not the absence of sound, but the presence of something far more ancient — a stillness that has always been there, waiting to be noticed.
+    body: `नताशुभाशु नाशकं
+नमामि तं विनायकम्
 
-We spend our days in a river of words, plans, memories, and projections. The mind moves ceaselessly, like a weaver at a loom, threading one thought into the next. But have you ever paused to notice what exists in the gaps?
+Observe yourself clinically. Consider your recent initiatives—both in thought and in action. Continue this observation for several more days without judgment; neither criticise nor defend yourself. Record the facts somewhere. Make this a daily practice over many days and months.
 
-## The Doorway
+When humans step out of themselves and act, it is typically either to maintain the status quo or to gain something. For example, doing your daily chores maintains the status quo, while buying a new car is for gain. This is easy to understand, isn’t it?
 
-Between the ending of one thought and the beginning of the next, there is a sliver of pure awareness. It is not empty. It is full — full of the awareness that you are. Not what you are, not who you are, but simply that you are.
+Sir Isaac Newton stated that all physical objects are governed by the law of inertia, remember? Objects tend to remain at rest or in continuous mechanical motion. Most of us humans also behave similarly. The tendency to preserve oneself—one’s svabhāva, idiosyncrasies, and the arrangements we create in this world to suit our nature and convenience—is nothing but inertia. We want no disruption, no forced or compelled actions. We seek to remain as we are and follow a simple value that sustains this inertia: “I won’t hurt you, and you please don’t do anything that will disrupt my peace.”
 
-This is not a philosophical concept to be debated. It is a lived experience, available to anyone who turns their attention inward with sincerity and patience.
+We cling to systems and families to avoid unnecessary disruption. We desire a sustainable income and want our expenditures to stay within their designated slots. The goal, the purpose, is to avoid worry. So, create a financial arrangement that ensures that.
 
-> "The mind is a wonderful servant but a terrible master." — The moment you observe the mind, you are no longer entirely within it.
+Do you see what I’m pointing to?
 
-## Practising the Pause
+We seek self-preservation, which translates to seeking inertia. We crave a predictable daily routine free from major surprises that could disrupt our meticulous plans and their execution. Even excessive work is avoided because it demands more effort and causes stress, potentially encroaching on others’ territories and ruffling feathers. This is how societal and familial roles are fulfilled, with the express purpose of maintaining peace and a state of unchanging inertia.
 
-Begin simply. As you read these words, notice the breath. Not to control it, but to witness it. In that witnessing, thought slows — even if only for a moment. And in that moment, you touch something that thought cannot create or destroy.
+Naturally, desire is our sole source of happiness and liberation, isn’t it? And if desires can be easily fulfilled without disrupting anyone’s carefully crafted equilibrium, all the more better. Satisfy your desire, find liberation and happiness, and ensure no one else is disturbed. Since they’re not disturbed, they can also be happy for you.
 
-This is not meditation as a technique. It is meditation as your natural state — the state of being aware that you are aware.
+A life dedicated to such carefully maintained peace and occasional soul-liberating desires. Of course, wisdom lies in knowing that fewer desires are better. Therefore, as we age, we avoid actively pursuing our desires, or at least restrain ourselves from doing so, to maintain peace.
 
-## Living From Stillness
+Now, this being our condition and long-term purpose, what do we seek when we visit Gaṇapati during the festival and offer our worship? Do we want him to quickly eliminate obstacles to our desires? Do we want him to prevent any external force from disturbing our peace? We desire शुभ लाभ, isn’t it? Lābha is gain, but that gain must not be at the cost of someone else’s peace and equilibrium, right? Therefore, not only should the process of gain be auspicious, śubha, but the gain itself must be śubha, isn’t it? We want no disruption to anyone while we keep on gaining; that is the general plan!
 
-The invitation is not to abandon thought, but to discover what holds thought. Like the sky holds clouds, your awareness holds every experience without being stained by any of them.
+However, we fail to realise that Gaṇapati, by his very nature, embodies the opposite of what we seek. He is inherently anti-inertia, and he is the very force that disrupts our carefully crafted peace plans. But he disrupts peacefully, if you know what I mean. He doesn’t oppose desire or its fulfilment per se, but he doubts the liberation experienced through desire’s fulfilment. Gaṇapati observes that the soul initially confines itself in a jail of inertia for its own peace and then experiences liberation through desire, as though on parole, only to return to confinement upon fulfilling desire.
 
-When you begin to live from this understanding, action becomes effortless. Not because life becomes easy, but because you are no longer fighting with what is. You respond rather than react. You move from clarity rather than confusion.
+Gaṇapati discovers for us that noble initiative–a gentle nudging force that frees you from your self-imposed prison and the inertia that sustains it. He rescues you from a confined life, lifting you into a vast, infinite expanse where the sun shines brightly, and life feels invigorating. A single noble initiative can liberate you as well as those involved in the project too.
 
-The silence between thoughts is not a destination. It is where you have always been.`,
+This is how ‘Unblockedness’, the blessing of Gaṇapati, works for you. Gaṇapati is relentless, continually finding opportunities to guide you to that open sky even when you stubbornly cling to your self-made prison. So when you offer him worship the next time, remember: you’re asking to be freed from inertia. You seek a life of nobility; you realise that the liberation promised by desire is, in fact, an escape from reality.
+
+Ask Gaṇapati to take you to that space that already is in perfect order; it’s easier for him to do that. Seek his blessings to nudge you out of the grip of certainty. He waits patiently, with infinite understanding, but his direction is set.
+
+ॐ गं गणपतये नमः ।।`,
   },
   {
     slug: "water-finds-its-level",
