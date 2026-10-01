@@ -17,7 +17,7 @@ const WritingSearch = () => {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="h-10 w-10 rounded-full border-primary/25 bg-transparent px-0 font-body font-normal text-primary hover:bg-primary/10 sm:w-28 sm:justify-start sm:rounded-none sm:px-3" aria-label="Search writings" title="Search writings">
+        <Button variant="outline" className="h-10 w-10 rounded-full border-primary/20 bg-transparent px-0 font-body font-normal text-primary shadow-none hover:border-primary/40 hover:bg-primary/5 sm:w-36 sm:justify-start sm:px-4" aria-label="Search writings" title="Search writings">
           <Search className="h-[18px] w-[18px]" strokeWidth={1.6} />
           <span className="hidden text-xs text-muted-foreground sm:inline">Search</span>
         </Button>
