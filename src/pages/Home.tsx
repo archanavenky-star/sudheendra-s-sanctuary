@@ -83,7 +83,7 @@ const Home = () => {
               <div className="grid overflow-hidden border border-primary bg-primary text-primary-foreground md:grid-cols-[0.8fr_1.2fr]">
                 <Link to="/series" className="group flex min-h-[330px] flex-col items-center justify-center border-b border-primary-foreground/25 p-10 md:min-h-[470px] md:border-b-0 md:border-r">
                   <p className="mb-10 text-xs uppercase tracking-[0.28em] text-primary-foreground/80">Series</p>
-                  <img src={lotus} alt="" className="h-auto w-[190px] brightness-0 invert opacity-90 transition-opacity duration-700 group-hover:opacity-100 md:w-[230px]" />
+                  <img src={lotus} alt="" className="h-auto w-[190px] brightness-0 invert md:w-[230px]" />
                 </Link>
                 <div className="flex flex-col justify-center p-9 md:p-14">
                   <h2 className="font-heading text-4xl font-normal leading-tight md:text-5xl">Explore the series</h2>
