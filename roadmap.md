@@ -13,3 +13,4 @@
 
 - [x] Apply the uploaded site-wide visual, reading, progress, metadata, motion, and accessibility pointers.
 - [x] Remove article and series metadata, refine reading-page spacing and motion, and replace raster emblems with sharp vectors.
+- [ ] Enlarge the original emblems on Home and raise the footer text for clear visibility.
