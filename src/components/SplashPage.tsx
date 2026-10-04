@@ -7,7 +7,7 @@ type SplashPageProps = {
 };
 
 const SplashPage = ({ onEnter }: SplashPageProps) => (
-  <main className="relative isolate flex min-h-dvh items-center justify-center overflow-hidden bg-background px-6 py-12">
+  <main className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-background px-6 py-12">
     <img
       src={dawn}
       alt="Himalayan peaks emerging in the light of dawn"
@@ -15,7 +15,7 @@ const SplashPage = ({ onEnter }: SplashPageProps) => (
     />
     <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/20 via-background/45 to-background/90" />
 
-    <div className="fade-in flex min-h-[calc(100dvh-6rem)] w-full max-w-[1440px] flex-col items-center justify-between text-center">
+    <div className="fade-in flex min-h-[calc(100vh-6rem)] w-full max-w-[1440px] flex-col items-center justify-between text-center">
       <span aria-hidden="true" className="h-12" />
 
       <img

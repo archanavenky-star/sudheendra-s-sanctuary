@@ -11,57 +11,48 @@ import Series from "./pages/Series";
 import ReadingPage from "./pages/ReadingPage";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
-import ScrollReveal from "@/components/ScrollReveal";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminBlogs from "./pages/admin/AdminBlogs";
+import AdminEditor from "./pages/admin/AdminEditor";
+import AdminGuard from "./components/AdminGuard";
+import { AdminAuthProvider } from "./hooks/use-admin-auth";
 
 const queryClient = new QueryClient();
-
 const SPLASH_SESSION_KEY = "iatw-splash-seen";
 
 const AppRoutes = () => {
   const location = useLocation();
   const [hasEntered, setHasEntered] = useState(() => {
-    try {
-      return window.sessionStorage.getItem(SPLASH_SESSION_KEY) === "true";
-    } catch {
-      return false;
-    }
+    try { return window.sessionStorage.getItem(SPLASH_SESSION_KEY) === "true"; } catch { return false; }
   });
-
   const enterSite = () => {
-    try {
-      window.sessionStorage.setItem(SPLASH_SESSION_KEY, "true");
-    } catch {
-      // The splash can still be dismissed when session storage is unavailable.
-    }
+    try { window.sessionStorage.setItem(SPLASH_SESSION_KEY, "true"); } catch { /* continue */ }
     setHasEntered(true);
   };
 
-  if (location.pathname === "/" && !hasEntered) {
-    return <SplashPage onEnter={enterSite} />;
-  }
+  if (location.pathname === "/" && !hasEntered) return <SplashPage onEnter={enterSite} />;
 
-  return (
-    <div key={location.pathname} className="route-enter">
-      <ScrollReveal />
-      <Routes location={location}>
-        <Route path="/" element={<Home />} />
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/notes" element={<Notes />} />
-        <Route path="/series" element={<Series />} />
-        <Route path="/read/:slug" element={<ReadingPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
-  );
+  return <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/articles" element={<Articles />} />
+    <Route path="/notes" element={<Notes />} />
+    <Route path="/series" element={<Series />} />
+    <Route path="/read/:slug" element={<ReadingPage />} />
+    <Route path="/admin/login" element={<AdminLogin />} />
+    <Route path="/admin" element={<AdminGuard><AdminBlogs /></AdminGuard>} />
+    <Route path="/admin/blogs" element={<AdminGuard><AdminBlogs /></AdminGuard>} />
+    <Route path="/admin/blogs/new" element={<AdminGuard><AdminEditor /></AdminGuard>} />
+    <Route path="/admin/blogs/:id/edit" element={<AdminGuard><AdminEditor /></AdminGuard>} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>;
 };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
+      <Toaster /><Sonner />
       <BrowserRouter>
-        <AppRoutes />
+        <AdminAuthProvider><AppRoutes /></AdminAuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

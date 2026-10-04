@@ -6,5 +6,4 @@
 - Use the approved expansive editorial composition as the sole home page, because the earlier concept has been retired.
 - Treat Insights as untitled text blocks in an in-page master-detail reader, because readers should browse every opening without leaving the collection.
 - Show the Himalayan dawn splash only once per browser session and only before Home, so direct reading links remain uninterrupted.
-- Use burgundy for interactive text and active states, reserving saffron for marked verses and the splash entry, so action meaning remains consistent.
-- Keep reader progress entirely in browser storage and derive navigation metadata from static content, because the publication must remain private and backend-free.
+- Use a dedicated semantic action color for reading and navigation prompts so clickable text stays consistent across the publication.

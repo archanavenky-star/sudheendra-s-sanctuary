@@ -247,11 +247,9 @@ export function getSeriesGroups(): { title: string; articles: Article[] }[] {
     .filter((a) => a.type === "series" && a.seriesTitle)
     .sort((a, b) => (a.seriesPart ?? 0) - (b.seriesPart ?? 0))
     .forEach((a) => {
-      const title = a.seriesTitle;
-      if (!title) return;
-      const existing = seriesMap.get(title) ?? [];
+      const existing = seriesMap.get(a.seriesTitle!) ?? [];
       existing.push(a);
-      seriesMap.set(title, existing);
+      seriesMap.set(a.seriesTitle!, existing);
     });
   return Array.from(seriesMap.entries()).map(([title, arts]) => ({ title, articles: arts }));
 }
